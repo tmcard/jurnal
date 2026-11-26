@@ -1,0 +1,1339 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light"><meta name="theme-color" content="#26232c"><title>Мой журнал</title><style>:root{--paper:#f7f4e9;--paper-2:#f2eee0;--ink:#3d3e35;--muted:#8d8e7e;--green:#7d9a3d;--green-deep:#526a24;--green-soft:#e3eacd;--green-pale:#eef3e0;--line:#d3d2c1;--desk:#8f8994}*{box-sizing:border-box}[hidden]{display:none!important}html{min-height:100%}body{margin:0;min-height:100vh;min-height:100dvh;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:radial-gradient(1100px 720px at 50% -12%,#b8b2bd 0,#a29ca8 42%,#8b8591 72%,#7a7480 100%);-webkit-font-smoothing:antialiased}body::after{content:"";position:fixed;top:0;right:0;bottom:0;left:0;pointer-events:none;opacity:.035;z-index:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}button{font-family:inherit}svg{display:block}.lock-screen{position:relative;z-index:1;min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:26px 16px}.lock-card{position:relative;width:min(432px,100%);background:radial-gradient(120% 80% at 12% 0,rgba(255,255,255,.7),transparent 55%),var(--paper);border-top:6px solid #8aa64a;border-radius:6px;padding:32px 34px 24px;box-shadow:0 38px 90px rgba(20,16,26,.52),0 8px 22px rgba(20,16,26,.32);overflow:hidden}.lock-logo{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--green-pale);color:#6f8a35;margin-bottom:15px}.lock-card h1{margin:0 0 6px;font-family:Georgia,"Iowan Old Style","Times New Roman",serif;font-weight:400;font-size:28px;letter-spacing:.005em}.lock-sub{margin:0 0 4px;font-size:12.5px;line-height:1.6;color:#858675}.lock-form{margin-top:6px}.field{display:block;margin-top:14px;font-size:9px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#7f8070}.field input{display:block;width:100%;margin-top:5px;padding:10px 12px;border:1px solid #d8d6c3;border-radius:3px;background:#fcfbf4;font-family:inherit;font-size:14px;font-weight:400;letter-spacing:normal;text-transform:none;color:var(--ink);outline:0;transition:border-color .15s,box-shadow .15s}.field input:focus{border-color:#93ac5a;box-shadow:0 0 0 3px rgba(125,154,61,.14)}.show-pw{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;color:#8a8b7a;cursor:pointer;user-select:none}.show-pw input{accent-color:#7d9a3d;margin:0}.btn-primary{width:100%;margin-top:16px;padding:11px 12px;border:0;border-radius:3px;background:#6e8a34;color:#f9f7ee;font-size:11.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;cursor:pointer;transition:background .15s}.btn-primary:hover{background:#5f792a}.btn-primary:disabled{opacity:.6;cursor:progress}.lock-hint{margin:9px 0 0;font-size:10px;line-height:1.55;color:#9d9e8c}.lock-error{min-height:15px;margin:10px 0 0;font-size:11px;line-height:1.45;color:#a44a38}.lock-secure{display:flex;gap:8px;align-items:flex-start;margin-top:18px;padding-top:14px;border-top:1px solid #e3e1d1;font-size:9px;line-height:1.55;color:#9b9c89}.lock-secure svg{flex:0 0 auto;margin-top:1px;color:#a2b377}.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:9px max(14px,calc((100vw - 1240px)/ 2));background:rgba(38,35,44,.74);border-bottom:1px solid rgba(255,255,255,.07);color:#f3f1e7;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}.brand{display:flex;align-items:center;gap:8px;margin-right:auto;font-size:13.5px;letter-spacing:.03em}.brand svg{color:#a7c063}.brand b{font-weight:600}.nav{display:flex;align-items:center;gap:5px}.ghost{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 12px;background:0 0;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#f3f1e7;font-size:11.5px;cursor:pointer;transition:background .15s,border-color .15s}.ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}.round{width:31px;height:31px;padding:0;font-size:15px}.date-jump{padding:5px 9px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#f3f1e7;font-family:inherit;font-size:11.5px;color-scheme:dark;outline:0}.date-jump:focus{border-color:rgba(255,255,255,.45)}.save-status{min-width:82px;text-align:right;font-size:10px;letter-spacing:.04em;color:rgba(243,241,231,.52);transition:color .2s}.save-status.error{color:#f0a48f}.save-status.saving{color:rgba(243,241,231,.75)}.spread-caption{position:relative;z-index:1;text-align:center;padding:20px 16px 13px;color:rgba(248,245,234,.78);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase}.book-wrap{position:relative;z-index:1;max-width:850px;margin:0 auto 42px;padding:8px 12px;border-radius:7px;background:linear-gradient(90deg,#6c8733,#94ae55 3%,#8aa64a 97%,#63802c);box-shadow:0 32px 74px rgba(20,16,26,.46),0 6px 18px rgba(20,16,26,.3)}.book{position:relative;display:grid;grid-template-columns:1fr;background:var(--paper);border-radius:2px;overflow:hidden}.page{position:relative;display:flex;flex-direction:column;min-height:760px;padding:28px 38px 30px;background-color:var(--paper);background-image:radial-gradient(130% 78% at 12% 0,rgba(255,255,255,.62),transparent 58%),radial-gradient(90% 65% at 100% 100%,rgba(176,168,136,.07),transparent 60%)}.page-content{display:flex;flex:1;flex-direction:column}.page-top{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}.page-id{flex:0 0 76px}.page-num{font-size:46px;line-height:.88;font-weight:300;letter-spacing:-.02em;color:#c1d293;font-variant-numeric:tabular-nums}.page-month{margin-top:4px;font-size:8.5px;letter-spacing:.19em;text-transform:lowercase;color:#8f907d}.page-month small{display:block;margin-top:1px;font-size:7.5px;letter-spacing:.14em;color:#b1b19f}.weekdays{display:flex;flex:1;justify-content:center;gap:3px;padding-top:12px}.wd{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;font-size:8px;letter-spacing:.03em;color:#9a9b8a;transition:background .15s}.wd.active{background:var(--green-pale);box-shadow:inset 0 0 0 1px #adc078;color:#647c2e}.doodle{flex:0 0 auto;width:40px;height:48px;margin-top:-2px;color:#a6b184;opacity:.82}.timeline{margin-top:2px}.timeline-head{display:grid;grid-template-columns:26px minmax(0,1fr) 102px;align-items:end;height:31px}.emotion-head{align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;background:var(--green-soft);border-radius:2px 2px 0 0;font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:#6c7f3d;line-height:1.15}.emotion-head .check{font-size:9px;line-height:1}.emotion-head small{font-size:6.5px;letter-spacing:.03em;text-transform:none;color:#8b9a62}.hour-row{display:grid;grid-template-columns:26px minmax(0,1fr) 102px;min-height:27px;transition:background .15s}.hour{padding-right:8px;text-align:right;font-size:10.5px;line-height:27px;color:#9a9b8b;font-variant-numeric:tabular-nums}.note{width:100%;height:27px;padding:0 7px;border:0;border-bottom:1px dotted var(--line);border-radius:0;background:0 0;font-family:inherit;font-size:12.5px;color:var(--ink);outline:0}.note::placeholder{color:#c0c0af}.note:focus{border-bottom-color:var(--green);background:rgba(125,154,61,.055)}.emotion-cell{position:relative;background:var(--green-soft)}.hour-row:last-child .emotion-cell{border-radius:0 0 2px 2px}.emotion{width:100%;height:100%;min-height:27px;padding:0 15px 0 5px;border:0;border-radius:0;background-color:transparent;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M1 1l3 3 3-3' fill='none' stroke='%236d7f3f' stroke-width='1.2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 5px center;-webkit-appearance:none;appearance:none;font-family:inherit;font-size:9.5px;letter-spacing:.01em;color:#7c8b52;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;outline:0}.emotion.filled{color:#3f5220;font-weight:600}.emotion:focus-visible{outline:1px solid #6e8a35;outline-offset:-1px}.hour-row.active{background:rgba(124,154,62,.07)}.hour-row.active .hour{color:#6d8534}@keyframes flashRow{0%{background:#dce8b9}100%{background:0 0}}.hour-row.flash{animation:flashRow .9s ease}.predominant{margin-top:5px;padding-top:8px;border-top:1px solid #ddddce}.pred-label{font-size:8px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#7c7d6c}.pred-label span{font-weight:400;letter-spacing:0;text-transform:none;color:#a2a290;font-size:8px}.pred-control{display:flex;align-items:center;gap:6px;margin-top:2px}.pred-input{flex:1;min-width:0;padding:3px 2px;border:0;border-bottom:1px dotted #cba;border-radius:0;background:0 0;font-family:inherit;font-size:13px;font-weight:500;color:var(--ink);outline:0}.pred-input:focus{border-bottom-color:var(--green)}.auto-btn{flex:0 0 auto;padding:3px 5px;border:0;border-radius:2px;background:0 0;color:#9aa87a;font-size:8px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.auto-btn:hover{background:var(--green-pale);color:var(--green-deep)}.page-bottom{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:30px;align-items:start;margin-top:auto;padding-top:28px}.thermometer{min-width:0}.thermo-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:7px}.thermo-head h3{margin:0;font-size:9px;font-weight:600;letter-spacing:.11em;color:#656654}.thermo-head .tip{font-size:7.5px;letter-spacing:.01em;color:#a7a795}.thermo-groups{display:grid;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-template-columns:1fr 1fr;gap:5px 14px}.thermo-group{font-size:9px;line-height:1.45;color:#5d5e4e;letter-spacing:.015em}.chip{padding:1px;border:0;border-radius:2px;background:0 0;font:inherit;color:inherit;cursor:pointer;transition:background .12s,color .12s}.chip:focus-visible,.chip:hover{background:#e7eed3;color:#4e6422;outline:0}.sep{color:#b9b9a6;padding:0 1px}.quote{margin:0;min-width:0;text-align:right;font-family:Georgia,"Iowan Old Style","Times New Roman",serif;font-style:italic;font-size:10.5px;line-height:1.62;color:#6b6b59}.quote p{margin:0}.quote footer{margin-top:8px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-style:normal;font-size:8px;letter-spacing:.07em;text-transform:uppercase;color:#8b8b78}dialog.settings{width:min(544px,calc(100vw - 28px));max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);padding:0;border:0;border-radius:6px;background:var(--paper);color:var(--ink);box-shadow:0 32px 90px rgba(0,0,0,.5)}dialog.settings::backdrop{background:rgba(25,22,30,.58);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}.settings-inner{max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);overscroll-behavior:contain;overflow:auto;padding:23px 26px 24px}.settings-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.settings-head h2{margin:0;font-family:Georgia,"Iowan Old Style",serif;font-weight:400;font-size:22px}.settings-close{width:30px;height:30px;display:grid;place-items:center;border:0;border-radius:50%;background:0 0;color:#8a8b7a;font-size:20px;line-height:1;cursor:pointer}.settings-close:hover{background:#eceada}.settings h3{margin:20px 0 7px;padding-top:15px;border-top:1px solid #e4e2d2;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#7c7d6b}.settings p{margin:0 0 9px;font-size:11.5px;line-height:1.55;color:#7d7e6d}.settings .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.settings input[type=password],.settings input[type=text]{width:100%;padding:8px 10px;border:1px solid #d8d6c3;border-radius:3px;background:#fcfbf4;font-family:inherit;font-size:12.5px;color:var(--ink);outline:0}.settings input:focus{border-color:#93ac5a;box-shadow:0 0 0 3px rgba(125,154,61,.13)}.settings .pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 12px;border:1px solid #c9c8b5;border-radius:3px;background:#fcfbf4;color:#4c4d3e;font-size:11.5px;cursor:pointer;transition:background .15s,border-color .15s}.btn:hover{background:#f2efdf}.btn.primary{background:#6e8a34;border-color:#6e8a34;color:#fbf9f0}.btn.primary:hover{background:#5f792a}.btn.danger{color:#9b4433;border-color:#ddc3bb}.btn.danger:hover{background:#f8eae6}.btn:disabled{opacity:.6;cursor:progress}.mini-status{min-height:14px;margin-top:7px;font-size:10.5px;color:#7f8f55}.mini-status.error{color:#a44a38}.import-panel{margin-top:10px;padding:10px;border:1px solid #dedccb;border-radius:3px;background:#fbf9ef}.import-panel .file-name{margin:0 0 7px;font-size:11px;color:#676858;word-break:break-all}.import-panel input{margin-bottom:7px}.settings code{padding:1px 4px;border-radius:2px;background:#eceada;font-size:10px;color:#5b5c4c}.settings .danger-zone{margin-top:10px}.history-list{display:flex;flex-direction:column;gap:7px;margin-top:14px;max-height:52vh;overflow:auto;padding-right:2px}.history-item{display:flex;flex-direction:column;gap:3px;padding:9px 11px;border:1px solid #e0dece;border-radius:4px;background:#fbf9ef;color:var(--ink);font-family:inherit;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}.history-item:hover{border-color:#bccb94;background:#f3f6e8}.history-item.current{border-color:#93ac5a;background:#f1f5e2}.history-date{font-size:11.5px;font-weight:600;color:#4d4e3f}.history-preview{font-size:10.5px;color:#898a77;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-meta{font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#a3a491}.history-empty{padding:20px 6px;text-align:center;font-size:11.5px;color:#959684}.history-count{margin:5px 0 0;font-size:10px;color:#95967f}.toast{position:fixed;left:50%;bottom:24px;z-index:100;padding:10px 16px;border-radius:999px;background:rgba(38,35,44,.94);color:#f4f1e6;font-size:12px;box-shadow:0 12px 30px rgba(0,0,0,.35);opacity:0;transform:translate(-50%,14px);pointer-events:none;transition:opacity .22s,transform .22s;max-width:calc(100vw - 32px);text-align:center;bottom:calc(24px + env(safe-area-inset-bottom,0px))}.toast.show{opacity:1;transform:translate(-50%,0)}@media (max-width:900px){.page{min-height:0;padding:24px 26px 28px}.page-bottom{grid-template-columns:1fr;gap:24px;padding-top:24px}.quote{text-align:left;max-width:100%}.spread-caption{padding-top:13px}}@media (max-width:620px){.brand b{display:none}.topbar{gap:6px;padding:8px 10px}.nav{order:3;width:100%;justify-content:center}.save-status{min-width:0}.page{padding:18px 15px 24px}.page-num{font-size:38px}.page-id{flex-basis:60px}.page-month{letter-spacing:.12em}.hour-row,.timeline-head{grid-template-columns:22px minmax(0,1fr) 86px}.emotion{font-size:9px;padding-right:13px}.thermo-groups{grid-auto-flow:row;grid-template-columns:1fr;grid-template-rows:none;gap:4px}.quote{text-align:left;font-size:11px}.settings-inner{padding:20px 18px}.settings .pw-grid{grid-template-columns:1fr}.history-item{padding:9px 10px}}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}.chip,button,select{touch-action:manipulation;-webkit-tap-highlight-color:transparent}dialog:not([open]){display:none}.dlg-poly[open]{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:60;margin:0;box-shadow:0 0 0 100vmax rgba(25,22,30,.58)}@media (max-width:620px){.ghost span{display:none}.ghost{min-height:36px}.round{width:36px;height:36px}.date-jump{min-width:0;height:36px}.timeline-head{display:none}.hour-row{grid-template-columns:28px minmax(0,1fr);padding-bottom:7px}.hour{line-height:42px}.note{height:42px}.emotion-cell{grid-column:2;margin-top:2px;border-radius:2px}.hour-row:last-child .emotion-cell{border-radius:2px}.emotion{min-height:38px;padding:0 26px 0 10px;background-position:right 10px center}.thermo-group{display:flex;flex-wrap:wrap;align-items:center;font-size:11px}.chip{padding:8px 5px}.auto-btn{padding:12px 8px;font-size:10px}.lock-card{padding:28px 22px 22px}.show-pw{padding:8px 0;font-size:13px}}@media (pointer:coarse),(max-width:620px){.emotion,.field input,.note,.pred-input,.settings input[type=password],.settings input[type=text]{font-size:16px}.btn,.btn-primary,.settings-close{min-height:44px}.settings-close{min-width:44px}}@media (prefers-reduced-motion:reduce){*{animation-duration:NaNs!important;transition-duration:NaNs!important}}@media print{body{background:#fff}.book-wrap::before,.spread-caption,.toast,.topbar,body::after{display:none!important}.book-wrap{box-shadow:none;background:0 0;padding:0;max-width:none}.book{box-shadow:none}.page{min-height:0}.lock-screen,dialog{display:none!important}}</style><style>.note{display:block;--pad:4px;height:auto;min-height:27px;padding:var(--pad) 7px;line-height:1.4;max-height:calc(6 * 1.4em + 2 * var(--pad) + 1px);resize:none;overflow-x:hidden;overflow-y:hidden;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;-webkit-appearance:none;appearance:none}.emotion-cell{background:0 0}.emotion{--pt:13px;height:27px;border:0;border-radius:0;padding-left:calc(var(--pt) + 8px);background-color:var(--green-soft,#e3eacd);clip-path:polygon(var(--pt) 0,100% 0,100% 100%,var(--pt) 100%,0 50%);-webkit-clip-path:polygon(var(--pt) 0,100% 0,100% 100%,var(--pt) 100%,0 50%)}.emotion.filled{background-color:#b5cc78;color:#2c3812}.emotion:focus,.emotion:focus-visible{outline:0;background-color:#d3dfa8}.emotion.filled:focus,.emotion.filled:focus-visible{background-color:#a3bd62}@media (max-width:620px){.note{--pad:10px;min-height:42px}.emotion{--pt:20px;height:40px}}.menu-wrap{position:relative}.menu{position:absolute;right:0;top:calc(100% + 6px);min-width:190px;padding:6px;background:#2d2a34;border:1px solid rgba(255,255,255,.1);border-radius:10px;box-shadow:0 12px 30px rgba(0,0,0,.35);z-index:40}.menu[hidden]{display:none}.menu-item{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:0 12px;border:0;border-radius:7px;background:0 0;color:#f3f1e7;font:inherit;font-size:14px;text-align:left;cursor:pointer}.menu-item:focus-visible,.menu-item:hover{background:rgba(255,255,255,.1);outline:0}.menu-item svg{flex:none;opacity:.85}.nav-dates .save-status{margin-left:4px;white-space:nowrap}@media (max-width:620px){.nav.nav-actions{order:2;width:auto}.topbar .nav-dates{order:3;width:100%;justify-content:center;flex-wrap:nowrap}.nav-dates .date-jump{flex:1 1 90px;min-width:90px;width:auto}.nav-dates .save-status{flex:0 0 auto;font-size:11px}}.lock-import{margin-top:12px;text-align:center}.lock-import-btn{background:0 0;border:0;color:var(--green-deep,#526a24);font:inherit;font-size:13px;text-decoration:underline;min-height:44px;padding:0 10px;cursor:pointer}.lock-import-btn:disabled{opacity:.5}.lock-import-panel{display:flex;flex-direction:column;gap:10px;margin-top:4px;text-align:left}.lock-import-panel[hidden]{display:none}.lock-import-panel input[type=password]{height:44px;padding:0 12px;border:1px solid var(--line,#d3d2c1);border-radius:4px;background:#fbf9ef;color:var(--ink,#3d3e35);font:inherit;font-size:16px}#lockImpStatus{margin:8px 0 0;font-size:12px;line-height:1.45;color:var(--muted,#8d8e7e)}#lockImpStatus.error{color:#a3402c}.rep-seg{display:flex;border:1px solid var(--line,#d3d2c1);border-radius:6px;overflow:hidden;margin:6px 0 10px}.rep-seg button{flex:1;min-height:40px;border:0;background:#fbf9ef;color:var(--ink,#3d3e35);font:inherit;font-size:13px;cursor:pointer}.rep-seg button.active{background:var(--green-deep,#526a24);color:#f7f4e9}.rep-nav{display:flex;align-items:center;gap:8px;margin-bottom:12px}.rep-nav button{width:44px;height:44px;border:1px solid var(--line,#d3d2c1);border-radius:50%;background:#fbf9ef;color:var(--green-deep,#526a24);font-size:18px;cursor:pointer}#repLabel{flex:1;text-align:center;font-size:14px;color:var(--ink,#3d3e35)}.rep-top{background:var(--green-soft,#e3eacd);border-radius:6px;padding:14px;margin-bottom:12px}.rep-top small{display:block;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted,#8d8e7e)}.rep-top strong{display:block;margin-top:4px;font-size:20px;color:var(--green-deep,#526a24)}.rep-top span{display:block;margin-top:4px;font-size:12px;color:var(--muted,#8d8e7e)}.rep-row{display:grid;grid-template-columns:1fr auto;gap:3px 8px;margin:10px 0;font-size:13px;color:var(--ink,#3d3e35)}.rep-row .bar{grid-column:1/-1;height:6px;border-radius:3px;background:#e8e5d3;overflow:hidden}.rep-row .bar i{display:block;height:100%;background:var(--green,#7d9a3d)}@media (max-width:620px){.nav{flex-wrap:wrap;justify-content:center}}</style><style>.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);opacity:0;pointer-events:none}</style><style id="ios-usability">.topbar{padding-top:calc(9px + env(safe-area-inset-top,0px));padding-left:max(14px,env(safe-area-inset-left,0),calc((100vw - 1240px)/ 2));padding-right:max(14px,env(safe-area-inset-right,0),calc((100vw - 1240px)/ 2))}body{padding-bottom:env(safe-area-inset-bottom,0)}button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline-offset:2px}.topbar button:focus-visible{outline-color:#f3f1e7}@media (pointer:coarse){.round{width:44px;height:44px}.auto-btn,.ghost,.settings-close{min-height:44px}.settings-close{min-width:44px}.nav{flex-wrap:wrap}}@media (max-width:620px){.date-jump{width:122px}}</style></head><body><div class="lock-screen" id="lockScreen" hidden><div class="lock-card"><div class="lock-logo" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 8Z"/><path d="M12 15c0-3-2.5-5.5-6.5-5.5C5.5 13 8 15.5 12 15.5Z"/><path d="M8 21h8"/><path d="M12 3v3"/></svg></div><h1>Мой журнал</h1><p class="lock-sub" id="lockSub"></p><form class="lock-form" id="lockForm" method="post" autocomplete="on" novalidate></form><div class="lock-import" id="lockImport"><button type="button" class="lock-import-btn" id="lockImpBtn">Импортировать копию журнала</button><input type="file" id="lockImpFile" hidden><div class="lock-import-panel" id="lockImpPanel" hidden><input class="sr-only" type="text" name="username" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly="readonly"> <input type="password" id="lockImpPw" name="password" placeholder="Пароль от копии" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Пароль от копии"><button type="button" class="btn-primary" id="lockImpGo">Расшифровать и открыть</button></div><p id="lockImpStatus" role="alert"></p></div><div class="lock-secure"><svg width="13" height="15" viewBox="0 0 13 15" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="1.5" y="6.5" width="10" height="7.5" rx="1.2"/><path d="M4 6.5V4.8a2.5 2.5 0 0 1 5 0v1.7"/></svg><span>AES-256-GCM · PBKDF2-SHA256 · ключ не покидает этот браузер. Пароль не хранится и не восстанавливается.</span></div></div></div><div id="app" hidden><header class="topbar"><div class="brand"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 8-8 8Z"/><path d="M12 15c0-3-2.5-5.5-6.5-5.5C5.5 13 8 15.5 12 15.5Z"/><path d="M8 21h8"/></svg><b>Мой журнал</b></div><nav class="nav nav-dates" aria-label="Навигация по датам"><button class="ghost round" id="prevBtn" type="button" title="Предыдущий день" aria-label="Предыдущий день">←</button><button class="ghost" id="todayBtn" type="button">Сегодня</button><input class="date-jump" id="jumpDate" type="date" aria-label="Перейти к дате" title="Перейти к дате"><button class="ghost round" id="nextBtn" type="button" title="Следующий день" aria-label="Следующий день">→</button><span class="save-status" id="saveStatus" aria-live="polite"></span></nav><div class="nav nav-actions"><button class="ghost" id="lockBtn" type="button" title="Заблокировать журнал"><svg width="12" height="14" viewBox="0 0 13 15" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="6.5" width="10" height="7.5" rx="1.2"/><path d="M4 6.5V4.8a2.5 2.5 0 0 1 5 0v1.7"/></svg><span>Заблокировать</span></button><div class="menu-wrap"><button class="ghost round" id="menuBtn" type="button" title="Меню" aria-label="Меню" aria-haspopup="menu" aria-expanded="false" aria-controls="moreMenu">⋯</button><div class="menu" id="moreMenu" role="menu" hidden><button class="menu-item" id="reportBtn" type="button" role="menuitem"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 12V7M7 12V2M12 12V5"/></svg>Отчёт</button><button class="menu-item" id="historyBtn" type="button" role="menuitem"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="7" cy="7" r="5.5"/><path d="M7 3.8V7l2.2 1.4"/></svg>История</button><button class="menu-item" id="settingsBtn" type="button" role="menuitem"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2 4h10M2 10h10"/><circle cx="5" cy="4" r="1.6" fill="var(--bg,#2d2a34)"/><circle cx="9" cy="10" r="1.6" fill="var(--bg,#2d2a34)"/></svg>Настройки</button></div></div></div></header><div class="spread-caption" id="rangeLabel"></div><div class="book-wrap"><div class="book" id="book"></div></div><datalist id="emotionList"></datalist></div><dialog class="settings" id="settingsDlg"><div class="settings-inner"><div class="settings-head"><h2>Настройки</h2><button class="settings-close" id="closeSettings" type="button" aria-label="Закрыть">×</button></div><h3>Пароль</h3><p>Смена пароля заново зашифрует журнал. Старый пароль после этого не подойдёт.</p><form id="pwForm" method="post" autocomplete="on" novalidate><input class="sr-only" type="text" name="username" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly="readonly"><div class="pw-grid"><input type="password" id="newPw" name="new-password" placeholder="Новый пароль" autocomplete="new-password" passwordrules="minlength: 8;" aria-label="Новый пароль"> <input type="password" id="newPw2" name="new-password-confirm" placeholder="Ещё раз" autocomplete="new-password" passwordrules="minlength: 8;" aria-label="Повторите новый пароль"></div><div class="row"><button class="btn primary" id="changePwBtn" type="submit">Сменить пароль</button></div></form><p class="mini-status" id="pwStatus" role="status"></p><h3>Резервная копия</h3><p>Копия скачивается уже зашифрованной — для её открытия понадобится тот же пароль.</p><div class="row"><button class="btn" id="exportBtn" type="button">Скачать копию</button><button class="btn" id="importBtn" type="button">Импортировать</button><input type="file" id="importFile" hidden></div><div class="import-panel" id="importPanel" hidden><p class="file-name" id="importName"></p><input class="sr-only" type="text" name="username" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly="readonly"> <input type="password" id="importPw" name="password" placeholder="Пароль от копии" autocomplete="current-password" aria-label="Пароль от резервной копии"><button class="btn primary" id="importConfirm" type="button">Расшифровать и заменить</button><p class="mini-status error" id="importStatus" role="status"></p></div><h3>Хранение</h3><p>Записи лежат в<code>localStorage</code>этого браузера под ключом<code>myjournal.vault.v1</code>. Шифрование: AES-256-GCM, ключ выводится из пароля через PBKDF2-SHA256 (310 000 итераций). Пароль нигде не сохраняется.</p><p>Если очистить данные браузера или открыть журнал в другом браузере, записей там не будет. Автоблокировка — через 15 минут бездействия. Не открывайте журнал в двух вкладках сразу: вкладки могут перезаписать друг друга.</p><h3>Удаление</h3><p>Удаляет зашифрованное хранилище из этого браузера без возможности отмены.</p><div class="row danger-zone"><button class="btn danger" id="eraseBtn" type="button">Удалить журнал</button></div></div></dialog><dialog class="settings" id="reportDlg"><div class="settings-inner"><div class="settings-head"><h2>Отчёт по эмоциям</h2><button class="settings-close" id="closeReport" type="button" aria-label="Закрыть">×</button></div><div class="rep-seg"><button type="button" id="repWeek" class="active">Неделя</button><button type="button" id="repMonth">Месяц</button></div><div class="rep-nav"><button type="button" id="repPrev" aria-label="Предыдущий период">←</button><span id="repLabel"></span><button type="button" id="repNext" aria-label="Следующий период">→</button></div><div id="repBody"></div></div></dialog><dialog class="settings" id="historyDlg"><div class="settings-inner"><div class="settings-head"><h2>История записей</h2><button class="settings-close" id="closeHistory" type="button" aria-label="Закрыть">×</button></div><p>Дни, в которых уже есть записи. Выберите день, чтобы открыть его.</p><p class="history-count" id="historyCount"></p><div class="history-list" id="historyList"></div></div></dialog><div class="toast" id="toast" role="status" aria-live="polite"></div><script>(() => {
+  'use strict';
+
+  const STORAGE_KEY = 'myjournal.vault.v1';
+  const ITERATIONS = 310000;
+  const IDLE_MS = 15 * 60 * 1000;
+
+  const HOURS = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  const MONTHS_NOM = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+  const MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+  const WEEKDAYS = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+  const WEEKDAY_FULL = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье'];
+
+  const EMOTION_GROUPS = [
+    ['ИНТЕРЕС', 'ОЖИДАНИЕ', 'НАСТОРОЖЕННОСТЬ'],
+    ['ПРИНЯТИЕ', 'ДОВЕРИЕ', 'ВОСХИЩЕНИЕ'],
+    ['БЕЗМЯТЕЖНОСТЬ', 'РАДОСТЬ', 'ВОСТОРГ'],
+    ['РАСТЕРЯННОСТЬ', 'УДИВЛЕНИЕ', 'ИЗУМЛЕНИЕ'],
+    ['ТРЕВОГА', 'СТРАХ', 'УЖАС'],
+    ['ДОСАДА', 'ЗЛОСТЬ', 'ГНЕВ'],
+    ['СКУКА', 'НЕУДОВОЛЬСТВИЕ', 'ОТВРАЩЕНИЕ'],
+    ['ГРУСТЬ', 'ПЕЧАЛЬ', 'ГОРЕ'],
+    ['СМУЩЕНИЕ', 'СТЫД', 'ВИНА']
+  ];
+  const EMOTIONS = EMOTION_GROUPS.flat();
+  const EMOTION_OPTIONS = '<option value="">—</option>' + EMOTIONS.map(e => `<option value="${e}">${e}</option>`).join('');
+
+  const QUOTE_TEXT = '«Часто, очень часто я сомневаюсь в ценности человеческого разума. Мечты, вероятно, дают нам больше, чем разум, приносят больше удовлетворения. Эмоциональное наслаждение полнее и длительнее интеллектуального, не говоря уж о том, что за мгновения интеллектуальной радости потом расплачиваешься черной меланхолией. А эмоциональное удовлетворение влечет за собой лишь легкое притупление чувств, которое скоро проходит».';
+
+  const DOODLE_LEFT = `
+    <svg class="doodle" viewBox="0 0 44 52" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="22" cy="27" r="12.5"/>
+      <path d="M16 24.5c1.5-1.2 3.5-1.2 5 0M23 24.5c1.5-1.2 3.5-1.2 5 0"/>
+      <path d="M18.5 32c2 2.2 5 2.2 7 0"/>
+      <path d="M12 18.5c1-4 5-7 10-7s9 3 10 7"/>
+      <path d="M11.5 19c6-2.5 15-2.5 21 0"/>
+      <path d="M17 9.5V6M22 8V4M27 9.5V6"/>
+    </svg>`;
+  const DOODLE_RIGHT = `
+    <svg class="doodle" viewBox="0 0 44 52" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="22" cy="25" r="12.5"/>
+      <circle cx="17.5" cy="23.5" r="3.2"/>
+      <circle cx="26.5" cy="23.5" r="3.2"/>
+      <path d="M20.7 23.5h2.6M14.3 23.5l-2.4.6M29.7 23.5l2.2.6"/>
+      <path d="M18 32c1 2 7 2 8 0"/>
+      <path d="M13 33c1.5 5 4.5 8 9 8s7.5-3 9-8"/>
+      <path d="M18 17.5c2-2 6-2 8 0"/>
+    </svg>`;
+
+  const TE = new TextEncoder();
+  const TD = new TextDecoder();
+  const AAD = TE.encode('myjournal:v1');
+
+  const $ = id => document.getElementById(id);
+  const lockScreen = $('lockScreen');
+  const lockForm = $('lockForm');
+  const lockSub = $('lockSub');
+  const app = $('app');
+  const book = $('book');
+  const rangeLabel = $('rangeLabel');
+  const jumpDate = $('jumpDate');
+  const saveStatus = $('saveStatus');
+  const settingsDlg = $('settingsDlg');
+  const historyDlg = $('historyDlg');
+  const toastEl = $('toast');
+
+  let storageOK = true;
+  let cryptoOK = !!(window.crypto && window.crypto.subtle && window.crypto.getRandomValues);
+  let hasVault = false;
+  let cryptoKey = null;
+  let vaultMeta = null;
+  let journal = null;
+  let spreadDate = todayISO();
+  let saveTimer = null;
+  let saveChain = Promise.resolve();
+  let activeRow = null;
+  let idleTimer = null;
+  let lastActivity = Date.now();
+  let locking = false;
+  let wiping = false;
+  let pendingImport = null;
+  let lastRaw = null;
+  let forceNext = false;
+  let needsRerender = false;
+  let toastTimer = null;
+
+  try {
+    const probe = '__mj_probe__';
+    localStorage.setItem(probe, '1');
+    localStorage.removeItem(probe);
+    hasVault = !!localStorage.getItem(STORAGE_KEY);
+  } catch (err) {
+    storageOK = false;
+  }
+
+  /* ---------- date helpers ---------- */
+  function pad2(n) { return String(n).padStart(2, '0'); }
+  function toISO(d) { return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
+  function fromISO(iso) {
+    const p = iso.split('-').map(Number);
+    return new Date(p[0], p[1] - 1, p[2]);
+  }
+  function todayISO() { return toISO(new Date()); }
+  function addDays(iso, n) {
+    const d = fromISO(iso);
+    d.setDate(d.getDate() + n);
+    return toISO(d);
+  }
+  function isValidISO(iso) {
+    if (typeof iso !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(iso)) return false;
+    const p = iso.split('-').map(Number);
+    const d = new Date(p[0], p[1] - 1, p[2]);
+    return d.getFullYear() === p[0] && d.getMonth() === p[1] - 1 && d.getDate() === p[2];
+  }
+  function formatDay(iso) {
+    const d = fromISO(iso);
+    return `${WEEKDAY_FULL[(d.getDay() + 6) % 7]}, ${d.getDate()} ${MONTHS_GEN[d.getMonth()]} ${d.getFullYear()}`;
+  }
+  function plural(n, one, few, many) {
+    const n10 = n % 10, n100 = n % 100;
+    if (n10 === 1 && n100 !== 11) return one;
+    if (n10 >= 2 && n10 <= 4 && (n100 < 10 || n100 >= 20)) return few;
+    return many;
+  }
+
+  /* ---------- base64 ---------- */
+  function bufToB64(buf) {
+    const bytes = new Uint8Array(buf);
+    let s = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) {
+      s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    }
+    return btoa(s);
+  }
+  function b64ToBuf(str) {
+    const bin = atob(str);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  }
+
+  /* ---------- crypto ---------- */
+  function userError(message) {
+    const e = new Error(message);
+    e.userMessage = message;
+    return e;
+  }
+  async function deriveKey(password, salt, iterations) {
+    const base = await crypto.subtle.importKey('raw', TE.encode(password), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey(
+      { name: 'PBKDF2', salt, iterations, hash: 'SHA-256' },
+      base,
+      { name: 'AES-GCM', length: 256 },
+      false,
+      ['encrypt', 'decrypt']
+    );
+  }
+  async function writeVault(key, meta, payload) {
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const ct = await crypto.subtle.encrypt(
+      { name: 'AES-GCM', iv, additionalData: AAD },
+      key,
+      TE.encode(payload)
+    );
+    const container = {
+      v: 1,
+      kdf: 'PBKDF2-SHA256',
+      iter: meta.iter,
+      salt: bufToB64(meta.salt),
+      iv: bufToB64(iv),
+      ct: bufToB64(ct),
+      updated: new Date().toISOString()
+    };
+    const str = JSON.stringify(container);
+    localStorage.setItem(STORAGE_KEY, str);
+    lastRaw = str;
+  }
+  function validateContainer(c) {
+    if (!c || c.v !== 1) throw new Error('bad container');
+    if (typeof c.salt !== 'string' || typeof c.iv !== 'string' || typeof c.ct !== 'string') throw new Error('bad container');
+    const iter = Number(c.iter);
+    if (!Number.isFinite(iter) || iter < 10000 || iter > 2000000) throw new Error('bad iterations');
+    return iter;
+  }
+
+  /* ---------- journal data ---------- */
+  function emptyJournal() { return { version: 1, days: {} }; }
+  function ensureDay(iso) {
+    if (!journal.days[iso]) journal.days[iso] = { hours: {}, predominant: '' };
+    const day = journal.days[iso];
+    if (!day.hours || typeof day.hours !== 'object') day.hours = {};
+    if (typeof day.predominant !== 'string') day.predominant = '';
+    return day;
+  }
+  function setHour(iso, hour, patch) {
+    const day = ensureDay(iso);
+    const key = String(hour);
+    const cur = day.hours[key] || { text: '', emotion: '' };
+    day.hours[key] = { text: cur.text || '', emotion: cur.emotion || '', ...patch, t: Date.now() };
+  }
+  function computePredominant(day) {
+    if (!day || !day.hours) return '';
+    const counts = new Map();
+    for (const h of HOURS) {
+      const cell = day.hours[h];
+      const e = cell && cell.emotion;
+      if (e) counts.set(e, (counts.get(e) || 0) + 1);
+    }
+    let best = '', max = 0;
+    for (const [e, n] of counts) {
+      if (n > max) { best = e; max = n; }
+    }
+    return best;
+  }
+  function snapshotData(source) {
+    const data = source || journal;
+    const out = { version: 1, days: {} };
+    for (const iso of Object.keys(data.days)) {
+      if (!isValidISO(iso)) continue;
+      const day = data.days[iso];
+      const hours = {};
+      for (const h of HOURS) {
+        const cell = day && day.hours ? day.hours[h] : null;
+        if (!cell) continue;
+        const text = typeof cell.text === 'string' ? cell.text : '';
+        const emotion = typeof cell.emotion === 'string' ? cell.emotion : '';
+        const t = Number.isFinite(cell.t) ? cell.t : 0;
+        if (text || emotion || t) hours[h] = { text, emotion, t };
+      }
+      const predominant = day && typeof day.predominant === 'string' ? day.predominant : '';
+      const pt = day && Number.isFinite(day.pt) ? day.pt : 0;
+      if (Object.keys(hours).length || predominant || pt) out.days[iso] = { hours, predominant, pt };
+    }
+    return out;
+  }
+  function normalizeJournal(src) {
+    const out = emptyJournal();
+    const days = src && typeof src === 'object' && src.days && typeof src.days === 'object' ? src.days : {};
+    for (const iso of Object.keys(days)) {
+      if (!isValidISO(iso)) continue;
+      const day = days[iso];
+      if (!day || typeof day !== 'object') continue;
+      const hours = {};
+      const srcHours = day.hours && typeof day.hours === 'object' ? day.hours : {};
+      for (const h of HOURS) {
+        const cell = srcHours[h];
+        if (!cell || typeof cell !== 'object') continue;
+        const text = typeof cell.text === 'string' ? cell.text.slice(0, 2000) : '';
+        const emotion = typeof cell.emotion === 'string' && EMOTIONS.includes(cell.emotion) ? cell.emotion : '';
+        const t = Number.isFinite(cell.t) ? cell.t : 0;
+        if (text || emotion || t) hours[h] = { text, emotion, t };
+      }
+      const predominant = typeof day.predominant === 'string' ? day.predominant.slice(0, 200) : '';
+      const pt = Number.isFinite(day.pt) ? day.pt : 0;
+      if (Object.keys(hours).length || predominant || pt) out.days[iso] = { hours, predominant, pt };
+    }
+    return out;
+  }
+  function latestDate(data) {
+    const keys = Object.keys(data.days).filter(isValidISO).sort();
+    return keys.length ? keys[keys.length - 1] : null;
+  }
+
+  /* ---------- saving ---------- */
+  function setSaveStatus(state) {
+    saveStatus.classList.remove('saving', 'saved', 'error');
+    if (state === 'saving') { saveStatus.textContent = 'шифрую…'; saveStatus.classList.add('saving'); }
+    else if (state === 'saved') { saveStatus.textContent = '✓ сохранено'; saveStatus.classList.add('saved'); }
+    else if (state === 'error') { saveStatus.textContent = '⚠ не сохранено'; saveStatus.classList.add('error'); }
+    else saveStatus.textContent = '';
+  }
+  function setPred(iso, value) {
+    const d = ensureDay(iso);
+    d.predominant = value;
+    d.pt = Date.now();
+  }
+  function touchAll(j) {
+    const now = Date.now();
+    for (const iso of Object.keys(j.days)) {
+      const d = j.days[iso];
+      d.pt = now;
+      for (const h of Object.keys(d.hours)) d.hours[h].t = now;
+    }
+    return j;
+  }
+  function mergeJournals(a, b) {
+    const out = emptyJournal();
+    const blank = { hours: {}, predominant: '', pt: 0 };
+    for (const iso of new Set([...Object.keys(a.days), ...Object.keys(b.days)])) {
+      const da = a.days[iso] || blank, db = b.days[iso] || blank;
+      const hours = {};
+      for (const h of HOURS) {
+        const ca = da.hours[h], cb = db.hours[h];
+        const pick = !ca ? cb : !cb ? ca : ((cb.t || 0) > (ca.t || 0) ? cb : ca);
+        if (pick) hours[h] = pick;
+      }
+      const useB = (db.pt || 0) > (da.pt || 0);
+      out.days[iso] = { hours, predominant: useB ? db.predominant : da.predominant, pt: Math.max(da.pt || 0, db.pt || 0) };
+    }
+    return out;
+  }
+  function withLock(fn) {
+    if (navigator.locks && typeof navigator.locks.request === 'function') return navigator.locks.request('myjournal-write', fn);
+    return fn();
+  }
+  function forceLock(msg) {
+    cryptoKey = null; vaultMeta = null; journal = null; activeRow = null;
+    clearTimeout(idleTimer); idleTimer = null;
+    clearTimeout(saveTimer); saveTimer = null;
+    closeMenu();
+    [settingsDlg, historyDlg, reportDlg].forEach(d => { if (d.open) d.close(); });
+    book.replaceChildren();
+    rangeLabel.textContent = '';
+    saveStatus.textContent = '';
+    saveStatus.className = 'save-status';
+    app.hidden = true;
+    lockScreen.hidden = false;
+    lockForm.innerHTML = '';
+    renderLockForm();
+    setLockError(msg);
+  }
+  /* подтягивает изменения других вкладок и сливает их с текущими (по времени правки каждой ячейки) */
+  async function pullAndMerge(k, m) {
+    k = k || cryptoKey; m = m || vaultMeta;
+    if (forceNext) { forceNext = false; return false; }
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw || raw === lastRaw) return false;
+    let c;
+    try { c = JSON.parse(raw); validateContainer(c); } catch (e) { return false; }
+    if (c.salt !== bufToB64(m.salt)) {
+      forceLock('Пароль журнала был изменён в другой вкладке. Введите новый пароль.');
+      throw userError('Пароль журнала изменён в другой вкладке.');
+    }
+    let theirs;
+    try {
+      const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(c.iv), additionalData: AAD }, k, b64ToBuf(c.ct));
+      theirs = normalizeJournal(JSON.parse(TD.decode(plain)));
+    } catch (e) { return false; }
+    const before = JSON.stringify(snapshotData());
+    journal = mergeJournals(journal, theirs);
+    lastRaw = raw;
+    return before !== JSON.stringify(snapshotData());
+  }
+  function afterMerge() {
+    if (app.hidden || !journal) return;
+    const a = document.activeElement;
+    if (a && a.closest && a.closest('.page')) needsRerender = true;
+    else renderDay();
+  }
+  document.addEventListener('focusout', () => {
+    if (!needsRerender) return;
+    setTimeout(() => {
+      const a = document.activeElement;
+      if (needsRerender && journal && !(a && a.closest && a.closest('.page'))) { needsRerender = false; renderDay(); }
+    }, 250);
+  });
+  async function syncFromOtherTab() {
+    if (!cryptoKey || !vaultMeta || !journal) return;
+    try {
+      await withLock(async () => { if (await pullAndMerge()) afterMerge(); });
+    } catch (e) { console.error(e); }
+  }
+
+  function persist() {
+    if (!cryptoKey || !vaultMeta || !journal) return Promise.reject(new Error('locked'));
+    if (wiping) return Promise.reject(new Error('wiping'));
+    const key = cryptoKey;
+    const meta = vaultMeta;
+    setSaveStatus('saving');
+    const job = saveChain.then(() => withLock(async () => {
+      const changed = await pullAndMerge(key, meta);
+      await writeVault(key, meta, JSON.stringify(snapshotData()));
+      if (changed) afterMerge();
+    }));
+    saveChain = job.catch(() => {});
+    return job.then(
+      () => { if (cryptoKey) setSaveStatus('saved'); },
+      err => {
+        console.error(err);
+        if (cryptoKey) setSaveStatus('error');
+        throw err;
+      }
+    );
+  }
+  function queueSave() {
+    if (!cryptoKey || wiping) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      saveTimer = null;
+      persist().catch(() => {});
+    }, 450);
+  }
+
+  /* ---------- lock screen ---------- */
+  function setLockError(message) {
+    const el = $('lockError');
+    if (el) el.textContent = message || '';
+  }
+  /* строка записи: перенос по словам, рост до 6 строк, затем прокрутка */
+  window.addEventListener('error', ev => {
+    if (ev && typeof ev.message === 'string' && ev.message.indexOf('ResizeObserver') !== -1) ev.stopImmediatePropagation();
+  });
+  function autosizeNote(el) {
+    if (!el.offsetParent && el.getClientRects().length === 0) return;
+    el.style.height = 'auto';
+    const extra = el.offsetHeight - el.clientHeight;
+    el.style.height = (el.scrollHeight + extra) + 'px';
+    el.style.overflowY = el.scrollHeight > el.clientHeight + 1 ? 'auto' : 'hidden';
+  }
+  const noteWidths = new WeakMap();
+  const noteRO = typeof ResizeObserver === 'function'
+    ? new ResizeObserver(entries => {
+        entries.forEach(en => {
+          const w = Math.round(en.contentRect.width);
+          if (noteWidths.get(en.target) !== w) {
+            noteWidths.set(en.target, w);
+            requestAnimationFrame(() => autosizeNote(en.target));
+          }
+        });
+      })
+    : null;
+  function observeNote(el) { if (noteRO) noteRO.observe(el); }
+  window.addEventListener('resize', () => document.querySelectorAll('.note').forEach(autosizeNote));
+
+  function renderLockForm() {
+    resetLockImport();
+    $('lockImpBtn').disabled = !(cryptoOK && storageOK);
+    const create = !hasVault;
+    lockSub.textContent = create
+      ? 'Придумайте пароль — он станет ключом шифрования журнала.'
+      : 'Введите пароль, чтобы расшифровать записи.';
+    lockForm.innerHTML = `
+      <input class="sr-only" type="text" name="username" id="lockUser" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly>
+      <label class="field">Пароль
+        <input id="pw" name="${create ? 'new-password' : 'password'}" data-pw type="password" autocomplete="${create ? 'new-password' : 'current-password'}" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="${create ? 'next' : 'go'}" ${create ? 'minlength="8" passwordrules="minlength: 8;"' : ''}>
+      </label>
+      ${create ? `<label class="field">Повторите пароль
+        <input id="pw2" name="new-password-confirm" data-pw type="password" autocomplete="new-password" spellcheck="false" autocapitalize="off" autocorrect="off" enterkeyhint="go" minlength="8" passwordrules="minlength: 8;">
+      </label>` : ''}
+      <label class="show-pw"><input type="checkbox" id="showPw"> Показать пароль</label>
+      ${create
+        ? '<p class="lock-hint">Минимум 8 символов. Чем длиннее пароль, тем надёжнее. Восстановить его будет нельзя.</p>'
+        : '<p class="lock-hint">Пароль не хранится: без него записи не расшифровать.</p>'}
+      <button class="btn-primary" type="submit" id="lockSubmit">${create ? 'Создать журнал' : 'Открыть журнал'}</button>
+      <p class="lock-error" id="lockError" role="alert"></p>
+    `;
+    if (!cryptoOK) {
+      setLockError(window.isSecureContext === false ? 'Для шифрования нужно защищённое соединение: откройте страницу по HTTPS (http:// не подойдёт).' : 'Этот браузер не поддерживает Web Crypto. Откройте файл в современном браузере (Chrome, Firefox, Safari, Edge).');
+      const btn = $('lockSubmit');
+      if (btn) btn.disabled = true;
+    } else if (!storageOK) {
+      setLockError('Браузер не разрешает localStorage. Проверьте настройки приватности или откройте страницу через локальный сервер.');
+      const btn = $('lockSubmit');
+      if (btn) btn.disabled = true;
+    }
+    const pw = $('pw');
+    if (pw && cryptoOK && storageOK && !(window.matchMedia && matchMedia('(pointer:coarse)').matches)) pw.focus({ preventScroll: true });
+  }
+  lockForm.addEventListener('change', ev => {
+    if (ev.target && ev.target.id === 'showPw') {
+      const show = ev.target.checked;
+      lockForm.querySelectorAll('[data-pw]').forEach(inp => { inp.type = show ? 'text' : 'password'; });
+    }
+  });
+  lockForm.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    if (!cryptoOK || !storageOK) return;
+    const pwField = $('pw');
+    const pw2Field = $('pw2');
+    const pw = pwField ? pwField.value : '';
+    const pw2 = pw2Field ? pw2Field.value : '';
+    const create = !hasVault;
+    setLockError('');
+    if (create) {
+      if (pw.length < 8) return setLockError('Пароль должен быть не короче 8 символов.');
+      if (pw !== pw2) return setLockError('Пароли не совпадают.');
+    } else if (!pw) {
+      return setLockError('Введите пароль.');
+    }
+    const btn = $('lockSubmit');
+    const label = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = create ? 'Создаю…' : 'Открываю…'; }
+    try {
+      if (create) await createVault(pw);
+      else await openVault(pw);
+    } catch (err) {
+      console.error(err);
+      setLockError((err && err.userMessage) || 'Не удалось открыть журнал.');
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = label; }
+    }
+  });
+
+  /* ---------- import from the login screen ---------- */
+  const LOCK_IMP_LABEL = 'Расшифровать и открыть';
+  const lockImp = { container: null, imported: null };
+  function setImpStatus(msg, isErr) {
+    const el = $('lockImpStatus');
+    el.textContent = msg || '';
+    el.classList.toggle('error', !!isErr);
+  }
+  function resetLockImport() {
+    lockImp.container = null;
+    lockImp.imported = null;
+    $('lockImpPanel').hidden = true;
+    $('lockImpPw').value = '';
+    $('lockImpGo').textContent = LOCK_IMP_LABEL;
+    setImpStatus('');
+  }
+  $('lockImpBtn').addEventListener('click', () => $('lockImpFile').click());
+  $('lockImpFile').addEventListener('change', async () => {
+    const file = $('lockImpFile').files && $('lockImpFile').files[0];
+    if (!file) return;
+    try {
+      const text = (await readFileText(file)).replace(/^\uFEFF/, '');
+      const container = JSON.parse(text);
+      validateContainer(container);
+      resetLockImport();
+      lockImp.container = container;
+      $('lockImpPanel').hidden = false;
+      setImpStatus(`Файл: ${file.name}. Пароль от копии станет паролем журнала.` + (hasVault ? ' Журнал на этом устройстве будет заменён.' : ''));
+    } catch (e) {
+      console.error(e);
+      resetLockImport();
+      setImpStatus('Файл не похож на резервную копию.', true);
+    }
+    try { $('lockImpFile').value = ''; } catch (e) {}
+  });
+  $('lockImpPw').addEventListener('input', () => {
+    if (lockImp.imported) { lockImp.imported = null; $('lockImpGo').textContent = LOCK_IMP_LABEL; setImpStatus(''); }
+  });
+  $('lockImpGo').addEventListener('click', async () => {
+    if (!lockImp.container || !cryptoOK || !storageOK) return;
+    const pw = $('lockImpPw').value;
+    if (!pw) return setImpStatus('Введите пароль от копии.', true);
+    const btn = $('lockImpGo');
+    btn.disabled = true;
+    setImpStatus('');
+    try {
+      if (!lockImp.imported) {
+        const c = lockImp.container;
+        const key = await deriveKey(pw, b64ToBuf(c.salt), Number(c.iter) || ITERATIONS);
+        let plain;
+        try {
+          plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(c.iv), additionalData: AAD }, key, b64ToBuf(c.ct));
+        } catch (e) { throw userError('Неверный пароль от копии.'); }
+        let parsed;
+        try { parsed = JSON.parse(TD.decode(plain)); } catch (e) { throw userError('Данные в копии повреждены.'); }
+        lockImp.imported = normalizeJournal(parsed);
+        if (hasVault) {
+          const n = Object.keys(lockImp.imported.days).length;
+          btn.textContent = 'Заменить и открыть';
+          setImpStatus(`В копии: ${n} ${plural(n, 'день', 'дня', 'дней')}. Журнал на этом устройстве будет заменён без возможности отмены. Нажмите «Заменить и открыть».`);
+          return;
+        }
+      }
+      const imported = touchAll(lockImp.imported);
+      const salt = crypto.getRandomValues(new Uint8Array(16));
+      const key = await deriveKey(pw, salt, ITERATIONS);
+      const meta = { salt, iter: ITERATIONS };
+      await writeVault(key, meta, JSON.stringify(snapshotData(imported)));
+      cryptoKey = key;
+      vaultMeta = meta;
+      journal = imported;
+      hasVault = true;
+      const count = Object.keys(imported.days).length;
+      enterApp();
+      spreadDate = latestDate(imported) || todayISO();
+      renderDay();
+      resetLockImport();
+      toast(`Журнал импортирован: ${count} ${plural(count, 'день', 'дня', 'дней')}.`);
+    } catch (e) {
+      console.error(e);
+      setImpStatus((e && e.userMessage) || 'Не удалось импортировать копию.', true);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  async function createVault(password) {
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const key = await deriveKey(password, salt, ITERATIONS);
+    const meta = { salt, iter: ITERATIONS };
+    const data = emptyJournal();
+    await writeVault(key, meta, JSON.stringify(snapshotData(data)));
+    cryptoKey = key;
+    vaultMeta = meta;
+    journal = data;
+    hasVault = true;
+    enterApp();
+    toast('Журнал создан. Записи шифруются автоматически.');
+  }
+  async function openVault(password) {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) { hasVault = false; renderLockForm(); throw userError('Хранилище не найдено. Обновите страницу.'); }
+    lastRaw = raw;
+    let container;
+    try { container = JSON.parse(raw); } catch (e) { throw userError('Файл хранилища повреждён.'); }
+    let iter;
+    try { iter = validateContainer(container); } catch (e) { throw userError('Формат хранилища не распознан.'); }
+    let salt, key;
+    try {
+      salt = b64ToBuf(container.salt);
+      key = await deriveKey(password, salt, iter);
+    } catch (e) {
+      throw userError('Не удалось обработать пароль.');
+    }
+    let plain;
+    try {
+      plain = await crypto.subtle.decrypt(
+        { name: 'AES-GCM', iv: b64ToBuf(container.iv), additionalData: AAD },
+        key,
+        b64ToBuf(container.ct)
+      );
+    } catch (e) {
+      throw userError('Неверный пароль.');
+    }
+    let parsed;
+    try { parsed = JSON.parse(TD.decode(plain)); } catch (e) { throw userError('Данные повреждены.'); }
+    cryptoKey = key;
+    vaultMeta = { salt, iter };
+    journal = normalizeJournal(parsed);
+    enterApp();
+  }
+  function enterApp() {
+    try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {}); } catch (e) {}
+    lockScreen.hidden = true;
+    app.hidden = false;
+    spreadDate = todayISO();
+    renderDay();
+    setSaveStatus('saved');
+    resetIdle();
+    lockForm.innerHTML = '';
+  }
+  async function lockNow() {
+    if (!cryptoKey || locking || wiping) return false;
+    locking = true;
+    clearTimeout(idleTimer);
+    idleTimer = null;
+    clearTimeout(saveTimer);
+    saveTimer = null;
+    if (settingsDlg.open) settingsDlg.close();
+    if (historyDlg.open) historyDlg.close();
+    if (reportDlg.open) reportDlg.close();
+    closeMenu();
+    try {
+      await persist();
+    } catch (e) {
+      console.error(e);
+      locking = false;
+      resetIdle();
+      toast('Не удалось сохранить перед блокировкой. Проверьте хранилище.');
+      return false;
+    }
+    cryptoKey = null;
+    vaultMeta = null;
+    journal = null;
+    activeRow = null;
+    book.replaceChildren();
+    rangeLabel.textContent = '';
+    saveStatus.textContent = '';
+    saveStatus.className = 'save-status';
+    app.hidden = true;
+    lockScreen.hidden = false;
+    lockForm.innerHTML = '';
+    renderLockForm();
+    locking = false;
+    return true;
+  }
+
+  /* ---------- rendering ---------- */
+  function setActiveRow(row) {
+    if (!row || row === activeRow) return;
+    if (activeRow && activeRow.isConnected) activeRow.classList.remove('active');
+    activeRow = row;
+    activeRow.classList.add('active');
+  }
+  function updateEmotionStyle(select) {
+    select.classList.toggle('filled', !!select.value);
+    select.title = select.value || 'Выберите эмоцию';
+  }
+  function thermometerHTML() {
+    const groups = EMOTION_GROUPS.map(group => {
+      const words = group.map((e, i) => {
+        const btn = `<button type="button" class="chip" data-emotion="${e}" title="Вписать «${e}» в активную строку">${e}</button>`;
+        return (i ? '<span class="sep">—</span>' : '') + btn;
+      }).join('');
+      return `<div class="thermo-group">${words}</div>`;
+    }).join('');
+    return `<section class="thermometer" aria-label="Эмоциональный термометр">
+      <div class="thermo-head"><h3>ЭМОЦИОНАЛЬНЫЙ ТЕРМОМЕТР</h3><span class="tip">клик → в активную строку</span></div>
+      <div class="thermo-groups">${groups}</div>
+    </section>`;
+  }
+  function quoteHTML() {
+    return `<blockquote class="quote">
+      <p>${QUOTE_TEXT}</p>
+      <footer>Джек Лондон, «Морской волк»</footer>
+    </blockquote>`;
+  }
+  function buildPage(iso) {
+    const date = fromISO(iso);
+    const day = journal.days[iso] || null;
+    const wd = (date.getDay() + 6) % 7;
+    const num = date.getDate();
+    const weekdays = WEEKDAYS.map((w, i) =>
+      `<span class="wd${i === wd ? ' active' : ''}" title="${WEEKDAY_FULL[i]}">${w}</span>`
+    ).join('');
+    const rows = HOURS.map(h => `
+      <div class="hour-row" data-hour="${h}">
+        <span class="hour">${h}</span>
+        <textarea class="note" rows="1" maxlength="2000" autocomplete="off" autocapitalize="sentences" spellcheck="true" enterkeyhint="enter" aria-label="Запись на ${h}:00"></textarea>
+        <div class="emotion-cell"><select class="emotion" aria-label="Эмоция на ${h}:00">${EMOTION_OPTIONS}</select></div>
+      </div>`).join('');
+    const article = document.createElement('article');
+    article.className = 'page';
+    article.dataset.date = iso;
+    article.innerHTML = `
+      <header class="page-top">
+        <div class="page-id">
+          <div class="page-num">${num}</div>
+          <div class="page-month">${MONTHS_NOM[date.getMonth()]}<small>${date.getFullYear()}</small></div>
+        </div>
+        <div class="weekdays">${weekdays}</div>
+        ${wd % 2 ? DOODLE_RIGHT : DOODLE_LEFT}
+      </header>
+      <div class="page-content">
+        <div class="timeline">
+          <div class="timeline-head"><span></span><span></span><span class="emotion-head"><span class="check">✓</span>эмоция<small>из списка</small></span></div>
+          ${rows}
+        </div>
+        <div class="predominant">
+          <div class="pred-label">ПРЕОБЛАДАЮЩАЯ ЭМОЦИЯ <span>(запишите повторяющуюся чаще всего)</span></div>
+          <div class="pred-control">
+            <input class="pred-input" type="text" maxlength="200" list="emotionList" autocomplete="off" aria-label="Преобладающая эмоция">
+            <button class="auto-btn" type="button" title="Определить по заполненным эмоциям">авто</button>
+          </div>
+        </div>
+        <div class="page-bottom">
+          ${thermometerHTML()}
+          ${quoteHTML()}
+        </div>
+      </div>`;
+
+    HOURS.forEach(h => {
+      const row = article.querySelector(`.hour-row[data-hour="${h}"]`);
+      const note = row.querySelector('.note');
+      const select = row.querySelector('.emotion');
+      const cell = day && day.hours ? day.hours[h] : null;
+      if (cell) {
+        note.value = cell.text || '';
+        select.value = cell.emotion || '';
+      }
+      updateEmotionStyle(select);
+
+      autosizeNote(note);
+      observeNote(note);
+      note.addEventListener('input', () => {
+        autosizeNote(note);
+        setHour(iso, h, { text: note.value });
+        queueSave();
+      });
+      select.addEventListener('change', () => {
+        setHour(iso, h, { emotion: select.value });
+        updateEmotionStyle(select);
+        const pred = article.querySelector('.pred-input');
+        if (pred && pred.dataset.auto === '1') {
+          const value = computePredominant(ensureDay(iso));
+          pred.value = value;
+          setPred(iso, value);
+        }
+        queueSave();
+      });
+      row.addEventListener('focusin', () => setActiveRow(row));
+      row.addEventListener('pointerdown', () => setActiveRow(row));
+      row.addEventListener('click', ev => {
+        if (ev.target === row || ev.target.classList.contains('hour')) note.focus();
+      });
+    });
+
+    const predInput = article.querySelector('.pred-input');
+    const savedPredominant = day && day.predominant ? day.predominant : '';
+    predInput.value = savedPredominant;
+    if (!savedPredominant) {
+      const autoValue = computePredominant(day || { hours: {} });
+      if (autoValue) {
+        predInput.value = autoValue;
+        setPred(iso, autoValue);
+      }
+    }
+    predInput.dataset.auto = savedPredominant ? '0' : '1';
+    predInput.addEventListener('input', () => {
+      predInput.dataset.auto = '0';
+      setPred(iso, predInput.value);
+      queueSave();
+    });
+    article.querySelector('.auto-btn').addEventListener('click', () => {
+      const value = computePredominant(ensureDay(iso));
+      predInput.value = value;
+      predInput.dataset.auto = '1';
+      setPred(iso, value);
+      queueSave();
+      predInput.focus({ preventScroll: true });
+    });
+
+    article.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const target = activeRow && activeRow.isConnected ? activeRow : article.querySelector('.hour-row');
+        if (!target) return;
+        setActiveRow(target);
+        const select = target.querySelector('.emotion');
+        select.value = chip.dataset.emotion || '';
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        target.classList.remove('flash');
+        void target.offsetWidth;
+        target.classList.add('flash');
+        const rc = target.getBoundingClientRect();
+        if (rc.bottom < 0 || rc.top > window.innerHeight) toast(`${target.dataset.hour}:00 — ${chip.dataset.emotion}`);
+        setTimeout(() => target.classList.remove('flash'), 950);
+      });
+    });
+
+    return article;
+  }
+  function renderDay() {
+    book.replaceChildren(buildPage(spreadDate));
+    rangeLabel.textContent = formatDay(spreadDate);
+    jumpDate.value = spreadDate;
+    activeRow = null;
+    const firstRow = book.querySelector('.hour-row');
+    if (firstRow) setActiveRow(firstRow);
+  }
+  function buildDatalist() {
+    $('emotionList').innerHTML = EMOTIONS.map(e => `<option value="${e}"></option>`).join('');
+  }
+
+  /* ---------- history ---------- */
+  function dayHasContent(day) {
+    if (!day) return false;
+    if (day.predominant && day.predominant.trim()) return true;
+    return HOURS.some(h => {
+      const cell = day.hours && day.hours[h];
+      return !!(cell && ((cell.text && cell.text.trim()) || cell.emotion));
+    });
+  }
+  function dayPreview(day) {
+    if (!day || !day.hours) return 'без текста';
+    for (const h of HOURS) {
+      const cell = day.hours[h];
+      if (cell && cell.text && cell.text.trim()) return cell.text.trim();
+    }
+    if (day.predominant) return day.predominant;
+    for (const h of HOURS) {
+      const cell = day.hours[h];
+      if (cell && cell.emotion) return cell.emotion;
+    }
+    return 'без текста';
+  }
+  function openHistory() {
+    if (!cryptoKey || !journal) return;
+    const list = $('historyList');
+    list.replaceChildren();
+    const dates = Object.keys(journal.days)
+      .filter(iso => isValidISO(iso) && dayHasContent(journal.days[iso]))
+      .sort()
+      .reverse();
+    $('historyCount').textContent = dates.length
+      ? `Всего ${dates.length} ${plural(dates.length, 'день', 'дня', 'дней')} с записями`
+      : '';
+    if (!dates.length) {
+      const empty = document.createElement('p');
+      empty.className = 'history-empty';
+      empty.textContent = 'Пока нет записей. Всё, что вы напишете, появится здесь.';
+      list.appendChild(empty);
+    } else {
+      for (const iso of dates) {
+        const day = journal.days[iso];
+        const filled = HOURS.filter(h => {
+          const cell = day.hours && day.hours[h];
+          return !!(cell && ((cell.text && cell.text.trim()) || cell.emotion));
+        }).length;
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'history-item' + (iso === spreadDate ? ' current' : '');
+        const title = document.createElement('span');
+        title.className = 'history-date';
+        title.textContent = formatDay(iso);
+        const preview = document.createElement('span');
+        preview.className = 'history-preview';
+        preview.textContent = dayPreview(day);
+        const meta = document.createElement('span');
+        meta.className = 'history-meta';
+        const bits = [];
+        if (filled) bits.push(`${filled} ${plural(filled, 'запись', 'записи', 'записей')}`);
+        if (day.predominant) bits.push(day.predominant);
+        meta.textContent = bits.join(' · ') || 'запись';
+        item.append(title, preview, meta);
+        item.addEventListener('click', () => {
+          spreadDate = iso;
+          renderDay();
+          historyDlg.close();
+          resetIdle();
+        });
+        list.appendChild(item);
+      }
+    }
+    historyDlg.showModal();
+  }
+  /* ---------- report: most frequent emotion per week / month ---------- */
+  const menuBtn = $('menuBtn');
+  const moreMenu = $('moreMenu');
+  function closeMenu() {
+    if (!moreMenu.hidden) { moreMenu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); }
+  }
+  menuBtn.addEventListener('click', ev => {
+    ev.stopPropagation();
+    const open = moreMenu.hidden;
+    moreMenu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    if (open) { const f = moreMenu.querySelector('.menu-item'); if (f) f.focus(); }
+  });
+  moreMenu.addEventListener('click', () => closeMenu());
+  document.addEventListener('pointerdown', ev => { if (!moreMenu.hidden && !ev.target.closest('.menu-wrap')) closeMenu(); });
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !moreMenu.hidden) { closeMenu(); menuBtn.focus(); } });
+  const reportDlg = $('reportDlg');
+  const REPORT_MONTHS = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+  let reportMode = 'week';
+  let reportAnchor = todayISO();
+  function reportRange() {
+    const d = fromISO(reportAnchor);
+    if (reportMode === 'week') {
+      const start = addDays(reportAnchor, -((d.getDay() + 6) % 7));
+      return { start, end: addDays(start, 6) };
+    }
+    return { start: toISO(new Date(d.getFullYear(), d.getMonth(), 1)), end: toISO(new Date(d.getFullYear(), d.getMonth() + 1, 0)) };
+  }
+  function renderReport() {
+    const r = reportRange();
+    const a = fromISO(r.start), b = fromISO(r.end);
+    $('repLabel').textContent = reportMode === 'week'
+      ? `${a.getDate()} ${MONTHS_GEN[a.getMonth()]} – ${b.getDate()} ${MONTHS_GEN[b.getMonth()]} ${b.getFullYear()}`
+      : `${REPORT_MONTHS[a.getMonth()]} ${a.getFullYear()}`;
+    $('repWeek').classList.toggle('active', reportMode === 'week');
+    $('repMonth').classList.toggle('active', reportMode === 'month');
+    const counts = new Map();
+    let marks = 0, days = 0;
+    for (let iso = r.start; iso <= r.end; iso = addDays(iso, 1)) {
+      const day = journal.days[iso];
+      if (!day || !day.hours) continue;
+      let any = false;
+      for (const h of HOURS) {
+        const e = day.hours[h] && day.hours[h].emotion;
+        if (e) { counts.set(e, (counts.get(e) || 0) + 1); marks++; any = true; }
+      }
+      if (any) days++;
+    }
+    const list = [...counts].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0], 'ru'));
+    const body = $('repBody');
+    body.replaceChildren();
+    if (!list.length) {
+      const p = document.createElement('p');
+      p.className = 'history-empty';
+      p.textContent = 'За этот период нет отметок эмоций.';
+      body.appendChild(p);
+      return;
+    }
+    const top = list.filter(x => x[1] === list[0][1]).map(x => x[0]);
+    const box = document.createElement('div');
+    box.className = 'rep-top';
+    const small = document.createElement('small');
+    small.textContent = reportMode === 'week' ? 'Чаще всего за неделю' : 'Чаще всего за месяц';
+    const strong = document.createElement('strong');
+    strong.textContent = top.join(' · ');
+    const note = document.createElement('span');
+    note.textContent = `${list[0][1]} ${plural(list[0][1], 'раз', 'раза', 'раз')} из ${marks} · дней с отметками: ${days}` + (top.length > 1 ? ' · поровну' : '');
+    box.append(small, strong, note);
+    body.appendChild(box);
+    list.slice(0, 8).forEach(([name, n]) => {
+      const row = document.createElement('div');
+      row.className = 'rep-row';
+      const l = document.createElement('span');
+      l.textContent = name;
+      const v = document.createElement('span');
+      v.textContent = `${n} · ${Math.round(n / marks * 100)}%`;
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      const fill = document.createElement('i');
+      fill.style.width = (n / list[0][1] * 100) + '%';
+      bar.appendChild(fill);
+      row.append(l, v, bar);
+      body.appendChild(row);
+    });
+  }
+  function shiftReport(dir) {
+    if (reportMode === 'week') reportAnchor = addDays(reportAnchor, 7 * dir);
+    else { const d = fromISO(reportAnchor); reportAnchor = toISO(new Date(d.getFullYear(), d.getMonth() + dir, 1)); }
+    renderReport();
+  }
+  $('reportBtn').addEventListener('click', () => { reportAnchor = spreadDate || todayISO(); renderReport(); reportDlg.showModal(); });
+  $('repWeek').addEventListener('click', () => { reportMode = 'week'; renderReport(); });
+  $('repMonth').addEventListener('click', () => { reportMode = 'month'; renderReport(); });
+  $('repPrev').addEventListener('click', () => shiftReport(-1));
+  $('repNext').addEventListener('click', () => shiftReport(1));
+  $('closeReport').addEventListener('click', () => reportDlg.close());
+  reportDlg.addEventListener('click', ev => { if (ev.target === reportDlg) reportDlg.close(); });
+  $('historyBtn').addEventListener('click', openHistory);
+  $('closeHistory').addEventListener('click', () => historyDlg.close());
+  historyDlg.addEventListener('click', ev => {
+    if (ev.target === historyDlg) historyDlg.close();
+  });
+
+  /* ---------- idle / toast ---------- */
+  function resetIdle() {
+    if (!cryptoKey) return;
+    lastActivity = Date.now();
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(async () => {
+      idleTimer = null;
+      const ok = await lockNow();
+      if (ok) toast('Журнал заблокирован из-за неактивности.');
+    }, IDLE_MS);
+  }
+  function toast(message) {
+    toastEl.textContent = message;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3400);
+  }
+
+  /* ---------- navigation ---------- */
+  $('prevBtn').addEventListener('click', () => {
+    if (!cryptoKey) return;
+    spreadDate = addDays(spreadDate, -1);
+    renderDay();
+    resetIdle();
+  });
+  $('nextBtn').addEventListener('click', () => {
+    if (!cryptoKey) return;
+    spreadDate = addDays(spreadDate, 1);
+    renderDay();
+    resetIdle();
+  });
+  $('todayBtn').addEventListener('click', () => {
+    if (!cryptoKey) return;
+    spreadDate = todayISO();
+    renderDay();
+    resetIdle();
+  });
+  jumpDate.addEventListener('change', () => {
+    if (!cryptoKey) return;
+    if (isValidISO(jumpDate.value)) {
+      spreadDate = jumpDate.value;
+      renderDay();
+    } else {
+      jumpDate.value = spreadDate;
+    }
+    resetIdle();
+  });
+  $('lockBtn').addEventListener('click', async () => {
+    const ok = await lockNow();
+    if (ok) toast('Журнал заблокирован.');
+  });
+
+  document.addEventListener('keydown', ev => {
+    if ((ev.metaKey || ev.ctrlKey) && ev.shiftKey && ev.key.toLowerCase() === 'l' && cryptoKey) {
+      ev.preventDefault();
+      lockNow().then(ok => { if (ok) toast('Журнал заблокирован.'); });
+    }
+  });
+
+  ['pointerdown', 'keydown', 'input'].forEach(name => {
+    document.addEventListener(name, resetIdle, true);
+  });
+
+  window.addEventListener('beforeunload', ev => {
+    if (saveTimer) {
+      ev.preventDefault();
+      ev.returnValue = '';
+    }
+  });
+  function flushNow() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+      persist().catch(() => {});
+    }
+  }
+  window.addEventListener('pagehide', flushNow);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flushNow();
+    else if (cryptoKey && (syncFromOtherTab(), false)) {}
+    else if (cryptoKey && Date.now() - lastActivity > IDLE_MS) {
+      lockNow().then(ok => { if (ok) toast('Журнал заблокирован из-за неактивности.'); });
+    }
+  });
+  window.addEventListener('storage', ev => {
+    if (ev.key === STORAGE_KEY && cryptoKey) syncFromOtherTab();
+  });
+
+  /* ---------- settings: password ---------- */
+  $('settingsBtn').addEventListener('click', () => {
+    $('pwStatus').textContent = '';
+    $('pwStatus').classList.remove('error');
+    $('importStatus').textContent = '';
+    $('importPanel').hidden = true;
+    pendingImport = null;
+    $('newPw').value = '';
+    $('newPw2').value = '';
+    if (cryptoKey && journal) { clearTimeout(saveTimer); saveTimer = null; persist().catch(() => {}); }
+    settingsDlg.showModal();
+  });
+  $('closeSettings').addEventListener('click', () => settingsDlg.close());
+  settingsDlg.addEventListener('click', ev => {
+    if (ev.target === settingsDlg) settingsDlg.close();
+  });
+
+  $('changePwBtn').addEventListener('click', async () => {
+    const pw = $('newPw').value;
+    const pw2 = $('newPw2').value;
+    const status = $('pwStatus');
+    status.classList.remove('error');
+    if (pw.length < 8) { status.textContent = 'Минимум 8 символов.'; status.classList.add('error'); return; }
+    if (pw !== pw2) { status.textContent = 'Пароли не совпадают.'; status.classList.add('error'); return; }
+    const btn = $('changePwBtn');
+    btn.disabled = true;
+    status.textContent = '';
+    try {
+      await changePassword(pw);
+      $('newPw').value = '';
+      $('newPw2').value = '';
+      status.textContent = 'Пароль изменён.';
+      toast('Пароль изменён.');
+      resetIdle();
+    } catch (e) {
+      console.error(e);
+      status.textContent = 'Не удалось сменить пароль.';
+      status.classList.add('error');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  async function changePassword(newPassword) {
+    if (!cryptoKey || !vaultMeta) throw new Error('locked');
+    clearTimeout(saveTimer);
+    saveTimer = null;
+    const oldKey = cryptoKey;
+    const oldMeta = vaultMeta;
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const key = await deriveKey(newPassword, salt, ITERATIONS);
+    const meta = { salt, iter: ITERATIONS };
+    cryptoKey = key;
+    vaultMeta = meta;
+    setSaveStatus('saving');
+    const job = saveChain.then(() => withLock(async () => {
+      if (await pullAndMerge(oldKey, oldMeta)) afterMerge();
+      await writeVault(key, meta, JSON.stringify(snapshotData()));
+    }));
+    saveChain = job.catch(() => {});
+    try {
+      await job;
+    } catch (e) {
+      cryptoKey = oldKey;
+      vaultMeta = oldMeta;
+      setSaveStatus('error');
+      throw e;
+    }
+    setSaveStatus('saved');
+  }
+
+  /* ---------- settings: backup ---------- */
+  $('exportBtn').addEventListener('click', async () => {
+    /* без await до share(): iOS требует, чтобы диалог вызывался прямо из касания */
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) { toast('Нет сохранённых данных.'); return; }
+    const name = `myjournal-backup-${todayISO()}.json`;
+    let file = null;
+    try { file = new File([raw], name, { type: 'application/json' }); } catch (e) {}
+    if (file && navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: 'Копия журнала' });
+        toast('Копия отправлена. Выберите «Сохранить в Файлы».');
+        return;
+      } catch (e) {
+        if (e && e.name === 'AbortError') return;
+        console.error(e);
+      }
+    }
+    try {
+      const url = URL.createObjectURL(new Blob([raw], { type: 'application/json' }));
+      if ('download' in HTMLAnchorElement.prototype) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } else {
+        window.open(url, '_blank');
+      }
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+      toast('Зашифрованная копия сохранена.');
+    } catch (e) {
+      console.error(e);
+      toast('Не удалось сохранить копию.');
+    }
+  });
+
+  function readFileText(f) {
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = () => res(String(r.result));
+      r.onerror = () => rej(r.error);
+      r.readAsText(f);
+    });
+  }
+  const IMPORT_LABEL = 'Расшифровать и заменить';
+  function resetImportArm() {
+    if (pendingImport) delete pendingImport.imported;
+    $('importConfirm').textContent = IMPORT_LABEL;
+  }
+  $('pwForm').addEventListener('submit', ev => ev.preventDefault());
+  $('importPw').addEventListener('input', () => { if (pendingImport && pendingImport.imported) { resetImportArm(); $('importStatus').textContent = ''; } });
+  $('importBtn').addEventListener('click', () => $('importFile').click());
+  $('importFile').addEventListener('change', async () => {
+    const file = $('importFile').files && $('importFile').files[0];
+    if (!file) return;
+    $('importStatus').textContent = '';
+    try {
+      const text = (await readFileText(file)).replace(/^\uFEFF/, '');
+      const container = JSON.parse(text);
+      validateContainer(container);
+      pendingImport = { container, name: file.name };
+      $('importConfirm').textContent = IMPORT_LABEL;
+      $('importName').textContent = file.name;
+      $('importPw').value = '';
+      $('importPanel').hidden = false;
+      $('importPw').focus();
+    } catch (e) {
+      console.error(e);
+      pendingImport = null;
+      $('importPanel').hidden = true;
+      toast('Файл не похож на резервную копию.');
+    }
+    try { $('importFile').value = ''; } catch (e) {}
+  });
+  $('importConfirm').addEventListener('click', async () => {
+    if (!pendingImport) return;
+    const pw = $('importPw').value;
+    const status = $('importStatus');
+    const btn = $('importConfirm');
+    status.classList.add('error');
+    if (!pw) { status.textContent = 'Введите пароль от копии.'; return; }
+    status.textContent = '';
+    btn.disabled = true;
+    try {
+      if (!pendingImport.imported) {
+        const container = pendingImport.container;
+        const salt = b64ToBuf(container.salt);
+        const iter = Number(container.iter) || ITERATIONS;
+        const key = await deriveKey(pw, salt, iter);
+        let plain;
+        try {
+          plain = await crypto.subtle.decrypt(
+            { name: 'AES-GCM', iv: b64ToBuf(container.iv), additionalData: AAD },
+            key,
+            b64ToBuf(container.ct)
+          );
+        } catch (e) {
+          throw userError('Неверный пароль от копии.');
+        }
+        let parsed;
+        try { parsed = JSON.parse(TD.decode(plain)); } catch (e) { throw userError('Данные в копии повреждены.'); }
+        pendingImport.imported = normalizeJournal(parsed);
+        const c = Object.keys(pendingImport.imported.days).length;
+        btn.textContent = 'Подтвердить замену';
+        status.classList.remove('error');
+        status.textContent = (c ? `В копии: ${c} ${plural(c, 'день', 'дня', 'дней')}.` : 'В копии нет записей.') + ' Текущие записи будут заменены без возможности отмены. Нажмите «Подтвердить замену».';
+        return;
+      }
+      const imported = pendingImport.imported;
+      const count = Object.keys(imported.days).length;
+      clearTimeout(saveTimer);
+      saveTimer = null;
+      await saveChain;
+      journal = touchAll(imported);
+      forceNext = true;
+      await persist();
+      spreadDate = latestDate(imported) || todayISO();
+      renderDay();
+      settingsDlg.close();
+      pendingImport = null;
+      $('importPanel').hidden = true;
+      btn.textContent = IMPORT_LABEL;
+      toast(`Импортировано: ${count} ${plural(count, 'день', 'дня', 'дней')}.`);
+      resetIdle();
+    } catch (e) {
+      console.error(e);
+      status.classList.add('error');
+      status.textContent = (e && e.userMessage) || 'Не удалось импортировать копию.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  /* ---------- settings: erase ---------- */
+  let eraseArmed = false;
+  let eraseTimer = null;
+  $('eraseBtn').addEventListener('click', () => {
+    const btn = $('eraseBtn');
+    if (!eraseArmed) {
+      eraseArmed = true;
+      btn.textContent = 'Нажмите ещё раз для удаления';
+      eraseTimer = setTimeout(() => {
+        eraseArmed = false;
+        btn.textContent = 'Удалить журнал';
+      }, 4000);
+      return;
+    }
+    clearTimeout(eraseTimer);
+    wiping = true;
+    clearTimeout(saveTimer);
+    saveTimer = null;
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) { console.error(e); }
+    location.reload();
+  });
+
+  /* ---------- init ---------- */
+  [settingsDlg, historyDlg, reportDlg].forEach(d => {
+    if (typeof d.showModal === 'function') return;
+    d.classList.add('dlg-poly');
+    Object.defineProperty(d, 'open', { get() { return this.hasAttribute('open'); } });
+    d.showModal = function () { this.setAttribute('open', ''); };
+    d.close = function () { this.removeAttribute('open'); };
+  });
+  buildDatalist();
+  lockScreen.hidden = false;
+  renderLockForm();
+})();</script></body></html>
