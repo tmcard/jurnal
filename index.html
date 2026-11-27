@@ -2349,6 +2349,45 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
   buildDatalist();
   lockScreen.hidden = false;
   renderLockForm();
+
+  /* ?import=путь_или_URL_файла (также ?file=… и #import=…): загрузить копию и открыть как импорт */
+  async function importFromUrlParam() {
+    let target = null;
+    try {
+      const q = new URLSearchParams(location.search);
+      const h = new URLSearchParams(location.hash.replace(/^#/, ''));
+      target = q.get('import') || q.get('file') || h.get('import') || h.get('file');
+      if (q.has('import') || q.has('file') || h.has('import') || h.has('file')) {
+        q.delete('import'); q.delete('file');
+        h.delete('import'); h.delete('file');
+        const qs = q.toString(), hs = h.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + (hs ? '#' + hs : ''));
+      }
+    } catch (e) { return; }
+    if (!target || !target.trim()) return;
+    if (!(cryptoOK && storageOK)) return;
+    let url;
+    try {
+      url = new URL(target.trim(), location.href);
+      if (url.protocol !== 'https:' && url.protocol !== 'http:') throw new Error('protocol');
+    } catch (e) {
+      setImpStatus('Параметр import: недопустимый адрес файла.', true);
+      return;
+    }
+    const name = decodeURIComponent(url.pathname.split('/').filter(Boolean).pop() || 'копия');
+    setImpStatus('Загружаю копию…');
+    try {
+      const resp = await fetch(url.href, { cache: 'no-store', credentials: 'omit' });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const text = await resp.text();
+      await handleLockImpFile(new File([text], name));
+      try { $('lockImport').scrollIntoView({ block: 'center' }); } catch (e) {}
+    } catch (e) {
+      console.error(e);
+      setImpStatus('Не удалось загрузить файл по адресу из параметра import (проверьте путь; для чужого сайта нужен CORS).', true);
+    }
+  }
+  importFromUrlParam();
 })();
 </script>
 </body>
