@@ -769,6 +769,7 @@ dialog:not([open]){display:none}
 }
 .paste-box{display:block;width:100%;box-sizing:border-box;margin:8px 0;padding:10px 12px;border:1px solid var(--line,#d3d2c1);border-radius:4px;background:#fbf9ef;color:var(--ink,#3d3e35);font:inherit;font-size:16px;resize:none}
 .paste-box[hidden]{display:none}
+.importing .lock-sub,.importing #lockForm,.importing #lockImpBtn,.importing #lockPasteBtn,.importing #lockPasteBox{display:none}
 .lock-import{margin-top:12px;text-align:center}
 .lock-import-btn{background:none;border:0;color:var(--green-deep,#526a24);font:inherit;font-size:13px;text-decoration:underline;min-height:44px;padding:0 10px;cursor:pointer}
 .lock-import-btn:disabled{opacity:.5}
@@ -827,6 +828,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
         <input class="sr-only" type="text" name="username" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly>
         <input type="password" id="lockImpPw" name="password" placeholder="Пароль от копии" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Пароль от копии">
         <button type="button" class="btn-primary" id="lockImpGo">Расшифровать и открыть</button>
+        <button type="button" class="lock-import-btn" id="lockImpCancel">Отмена</button>
       </div>
       <p id="lockImpStatus" role="alert"></p>
     </div>
@@ -1515,12 +1517,14 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
   function resetLockImport() {
     lockImp.container = null;
     lockImp.imported = null;
+    lockScreen.classList.remove('importing');
     $('lockImpPanel').hidden = true;
     $('lockImpPw').value = '';
     $('lockImpGo').textContent = LOCK_IMP_LABEL;
     setImpStatus('');
   }
   $('lockImpBtn').addEventListener('click', () => $('lockImpFile').click());
+  $('lockImpCancel').addEventListener('click', () => resetLockImport());
   async function handleLockImpFile(file) {
     if (!file) return;
     try {
@@ -1529,6 +1533,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
       validateContainer(container);
       resetLockImport();
       lockImp.container = container;
+      lockScreen.classList.add('importing');
       $('lockImpPanel').hidden = false;
       setImpStatus(`Файл: ${file.name}. Пароль от копии станет паролем журнала.` + (hasVault ? ' Журнал на этом устройстве будет заменён.' : ''));
     } catch (e) {
