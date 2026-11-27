@@ -791,6 +791,78 @@ dialog:not([open]){display:none}
 .rep-row{display:grid;grid-template-columns:1fr auto;gap:3px 8px;margin:10px 0;font-size:13px;color:var(--ink,#3d3e35)}
 .rep-row .bar{grid-column:1/-1;height:6px;border-radius:3px;background:#e8e5d3;overflow:hidden}
 .rep-row .bar i{display:block;height:100%;background:var(--green,#7d9a3d)}
+/* ---------- Statistical report ---------- */
+#repBody{display:flex;flex-direction:column;gap:11px}
+.rep-card{border:1px solid #e0dece;border-radius:6px;background:#fbf9ef;padding:12px 13px}
+.rep-card-title{margin:0 0 9px;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#7c7d6b}
+.settings .rep-card-title{margin:0 0 9px;padding-top:0;border-top:0}
+.rep-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.rep-kpi{padding:8px 9px;border-radius:4px;background:#f3f1e4}
+.rep-kpi b{display:block;font-size:17px;line-height:1.12;color:var(--green-deep,#526a24);font-weight:600;overflow-wrap:anywhere}
+.rep-kpi span{display:block;margin-top:3px;font-size:9.5px;line-height:1.3;color:#8d8e7e}
+.rep-note{margin:8px 0 0;font-size:10.5px;line-height:1.5;color:#8d8e7e}
+.rep-top-list{display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}
+.rep-top-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;font-size:12px}
+.rep-top-item .rep-name{font-weight:600;color:#3d3e35;overflow-wrap:anywhere}
+.rep-top-item .rep-val{font-variant-numeric:tabular-nums;color:#526a24;white-space:nowrap}
+.rep-top-item .rep-sub{grid-column:1/-1;font-size:10px;line-height:1.4;color:#8d8e7e}
+.rep-top-item .bar{grid-column:1/-1;height:6px;border-radius:3px;background:#e8e5d3;overflow:hidden}
+.rep-top-item .bar i{display:block;height:100%;background:var(--green,#7d9a3d)}
+.rep-top-item.top .rep-name{color:var(--green-deep,#526a24)}
+.rep-badge{display:inline-block;padding:1px 5px;border-radius:999px;background:#e3eacd;color:#526a24;font-size:9px;font-weight:600;letter-spacing:.04em}
+.rep-badge.warn{background:#f3e2d8;color:#9b4433}
+.rep-badge.info{background:#e2e8f0;color:#4a5d78}
+.rep-table-wrap{overflow-x:auto;margin:0 -2px}
+.rep-table{width:100%;border-collapse:collapse;font-size:10.5px}
+.rep-table th,.rep-table td{padding:5px 4px;border-bottom:1px solid #eceada;text-align:left;white-space:nowrap}
+.rep-table th{font-size:8.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8d8e7e}
+.rep-table td.num{text-align:right;font-variant-numeric:tabular-nums}
+.rep-burst-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.rep-burst-head b{font-size:12px;color:#3d3e35;overflow-wrap:anywhere}
+.rep-burst-head span{font-size:10px;color:#8d8e7e;white-space:nowrap}
+.rep-burst-meta{margin-top:3px;font-size:10px;line-height:1.45;color:#7d7e6d}
+.rep-heat-wrap{overflow-x:auto;padding-bottom:2px}
+.rep-heat{display:grid;grid-template-columns:26px repeat(12,minmax(0,1fr));gap:2px;min-width:250px;font-size:8px}
+.rep-heat-h{text-align:center;color:#8d8e7e;font-size:8px;padding-bottom:2px}
+.rep-heat-d{display:flex;align-items:center;justify-content:flex-end;padding-right:3px;color:#8d8e7e;font-size:8px}
+.rep-heat-c{aspect-ratio:1;min-height:18px;border-radius:2px;display:grid;place-items:center;font-size:7px;color:#3d3e35;background:#f2eee0}
+.rep-heat-c.empty{background:#f6f3e7;color:#c9c7b6}
+.rep-legend{display:flex;flex-wrap:wrap;gap:4px 8px;margin-top:8px;font-size:8.5px;color:#8d8e7e}
+.rep-legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:3px;vertical-align:-1px}
+.rep-empty{padding:18px 6px;text-align:center;font-size:11.5px;color:#959684}
+.rep-details{margin-top:2px}
+.rep-details summary{cursor:pointer;font-size:10px;color:#526a24;min-height:28px;display:flex;align-items:center}
+.rep-details p{margin:4px 0 0}
+
+.rep-lead{margin:0 0 10px;font-size:11.5px;line-height:1.5;color:#6f705f}
+.rep-burst{padding:11px 0;border-top:1px solid #eceada}
+.rep-burst:first-of-type{border-top:0;padding-top:0}
+.rep-burst-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.rep-burst-text{margin:7px 0 0;font-size:11.5px;line-height:1.5;color:#4a4b40}
+.rep-cmp{display:flex;flex-direction:column;gap:9px;margin-top:9px}
+.rep-cmp-label{display:block;margin-bottom:3px;font-size:10.5px;font-weight:600;color:#5b5c4d}
+.rep-cmp-line{display:grid;grid-template-columns:54px minmax(0,1fr) 62px;gap:6px;align-items:center;margin-top:2px;font-size:9.5px;color:#8d8e7e}
+.rep-cmp-line em{font-style:normal}
+.rep-cmp-line b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;color:#4a4b40}
+.rep-cmp-bar{height:7px;border-radius:4px;background:#ebe8d6;overflow:hidden}
+.rep-cmp-bar i{display:block;height:100%;border-radius:4px}
+.rep-cmp-bar i.usual{background:#b9b8a4}
+.rep-cmp-bar i.now{background:#7d9a3d}
+.rep-more{margin:6px 0 0;font-size:10.5px;color:#8d8e7e}
+.rep-method-item{border-top:1px solid #eceada;padding:2px 0}
+.rep-method-item:first-of-type{border-top:0}
+.rep-method-item summary{cursor:pointer;font-size:11.5px;font-weight:600;color:#526a24;min-height:34px;display:flex;align-items:center}
+.rep-method-body{padding:0 0 8px}
+.rep-method-body p{margin:0 0 7px;font-size:11px;line-height:1.55;color:#6a6b5b}
+.rep-method-body p b{color:#4a4b40}
+.rep-method-body .rep-table{margin-top:4px}
+@media (max-width:620px){
+  .rep-card{padding:11px}
+  .rep-table{font-size:10px}
+  .rep-kpi b{font-size:16px}
+  .rep-burst-head{flex-wrap:wrap}
+  .rep-burst-head span{white-space:normal}
+}
 @media (max-width:620px){.nav{flex-wrap:wrap;justify-content:center}}
 </style>
 <style>.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);opacity:0;pointer-events:none}</style>
@@ -1952,6 +2024,663 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
     }
     return { start: toISO(new Date(d.getFullYear(), d.getMonth(), 1)), end: toISO(new Date(d.getFullYear(), d.getMonth() + 1, 0)) };
   }
+  /* ---------- report: statistics helpers ---------- */
+  const REPORT_WINDOWS = [3, 6, 12, 24];
+  const REPORT_GROUP_COLORS = ['#7d9a3d', '#5f8a55', '#b8a83e', '#5f87a8', '#7d6aa0', '#c06a4a', '#9a7a55', '#5a6a96', '#b06a86'];
+  const REPORT_GROUP_INDEX = new Map();
+  EMOTION_GROUPS.forEach((group, gi) => group.forEach(e => REPORT_GROUP_INDEX.set(e, gi)));
+  const REPORT_DRAWS = 1500;
+
+  function repEl(tag, className, text) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (text != null) el.textContent = text;
+    return el;
+  }
+  function repFmtPct(x, digits = 0) {
+    if (!Number.isFinite(x)) return '—';
+    if (x > 0 && x < 0.01) return '<1%';
+    return (x * 100).toFixed(digits).replace('.', ',') + '%';
+  }
+  function repFmtNum(x, digits = 1) {
+    return Number.isFinite(x) ? x.toFixed(digits).replace('.', ',') : '—';
+  }
+  function repFmtP(p) {
+    if (!Number.isFinite(p)) return '—';
+    return p < 0.001 ? '<0,001' : p.toFixed(3).replace('.', ',');
+  }
+  function repFmtDate(iso) {
+    const d = fromISO(iso);
+    return `${d.getDate()} ${MONTHS_GEN[d.getMonth()]}`;
+  }
+  function repPeriodInfo(start, end) {
+    const days = [];
+    for (let iso = start; iso <= end; iso = addDays(iso, 1)) {
+      const d = fromISO(iso);
+      days.push({ iso, date: d, dow: (d.getDay() + 6) % 7, week: Math.ceil(d.getDate() / 7) });
+    }
+    return days;
+  }
+  function repCollect(days) {
+    const cells = [];
+    const now = new Date();
+    const seen = new Set();
+    let expected = 0, textOnly = 0, duplicates = 0;
+    for (const info of days) {
+      const day = journal && journal.days ? journal.days[info.iso] : null;
+      const hours = day && day.hours ? day.hours : null;
+      for (const h of HOURS) {
+        const dt = new Date(info.date.getFullYear(), info.date.getMonth(), info.date.getDate(), h);
+        if (dt.getTime() <= now.getTime()) expected++;
+        const cell = hours ? hours[h] : null;
+        const state = cell && cell.emotion && EMOTIONS.includes(cell.emotion) ? cell.emotion : '';
+        const text = cell && typeof cell.text === 'string' ? cell.text.trim() : '';
+        if (state) {
+          const key = info.iso + ':' + h;
+          if (seen.has(key)) duplicates++;
+          else seen.add(key);
+          cells.push({ iso: info.iso, hour: h, state, dow: info.dow, week: info.week });
+        } else if (text) {
+          textOnly++;
+        }
+      }
+    }
+    return { cells, expected, textOnly, duplicates, days: days.length };
+  }
+  function repCounts(cells) {
+    const counts = new Map();
+    for (const c of cells) counts.set(c.state, (counts.get(c.state) || 0) + 1);
+    return counts;
+  }
+  function repWilson(k, n, z = 1.96) {
+    if (!n) return [0, 0];
+    const p = k / n, denom = 1 + z * z / n;
+    const center = (p + z * z / (2 * n)) / denom;
+    const half = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom;
+    return [Math.max(0, center - half), Math.min(1, center + half)];
+  }
+  function repBuildGrid(days) {
+    const grid = [];
+    for (const info of days) {
+      const day = journal && journal.days ? journal.days[info.iso] : null;
+      const hours = day && day.hours ? day.hours : null;
+      for (let h = 0; h < 24; h++) {
+        const cell = hours ? hours[h] : null;
+        const state = cell && cell.emotion && EMOTIONS.includes(cell.emotion) ? cell.emotion : '';
+        grid.push({ iso: info.iso, hour: h, state, dow: info.dow, week: info.week });
+      }
+    }
+    return grid;
+  }
+  function repBackground(cells, excluded) {
+    const byDay = new Map();
+    for (const c of cells) {
+      if (excluded && excluded.has(c.iso + ':' + c.hour)) continue;
+      let m = byDay.get(c.iso);
+      if (!m) { m = new Map(); byDay.set(c.iso, m); }
+      m.set(c.state, (m.get(c.state) || 0) + 1);
+    }
+    const dayMaps = [...byDay.values()].filter(m => m.size > 0);
+    if (!dayMaps.length) return null;
+    const states = EMOTIONS;
+    const medians = new Map();
+    for (const s of states) {
+      const vals = [];
+      for (const m of dayMaps) {
+        let total = 0;
+        for (const n of m.values()) total += n;
+        vals.push(total ? (m.get(s) || 0) / total : 0);
+      }
+      vals.sort((a, b) => a - b);
+      const mid = Math.floor(vals.length / 2);
+      medians.set(s, vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2);
+    }
+    const rawCounts = repCounts(excluded ? cells.filter(c => !excluded.has(c.iso + ':' + c.hour)) : cells);
+    let bg = '', best = -1, bestCount = -1;
+    for (const s of states) {
+      const v = medians.get(s), c = rawCounts.get(s) || 0;
+      if (v > best + 1e-12 || (Math.abs(v - best) <= 1e-12 && c > bestCount)) {
+        bg = s; best = v; bestCount = c;
+      }
+    }
+    if (!bg) return null;
+    const sumMed = states.reduce((acc, s) => acc + medians.get(s), 0);
+    const pseudo = 0.05;
+    const pBg = new Map();
+    for (const s of states) pBg.set(s, (medians.get(s) + pseudo / states.length) / (sumMed + pseudo));
+    const ordered = excluded ? cells.filter(c => !excluded.has(c.iso + ':' + c.hour)) : cells;
+    let bgRuns = 0, bgCells = 0, switches = 0, transitions = 0, prev = null;
+    for (const c of ordered) {
+      const contiguous = prev && prev.iso === c.iso && c.hour === prev.hour + 1;
+      if (contiguous) {
+        transitions++;
+        if (prev.state !== c.state) switches++;
+      }
+      if (c.state === bg) {
+        bgCells++;
+        if (!contiguous || prev.state !== bg) bgRuns++;
+      }
+      prev = c;
+    }
+    let daysTop2 = 0;
+    for (const m of dayMaps) {
+      const sorted = [...m].sort((a, b) => b[1] - a[1]);
+      const rank = sorted.findIndex(([s]) => s === bg);
+      if (rank === 0 || rank === 1) daysTop2++;
+    }
+    return {
+      bg, medians, pBg, share: medians.get(bg),
+      avgRun: bgRuns ? bgCells / bgRuns : 0, bgRuns, switches, transitions,
+      daysTop2, dayCount: dayMaps.length, top2Share: daysTop2 / dayMaps.length
+    };
+  }
+  function repStability(cells) {
+    let transitions = 0, switches = 0, prev = null;
+    for (const c of cells) {
+      if (prev && prev.iso === c.iso && c.hour === prev.hour + 1) {
+        transitions++;
+        if (prev.state !== c.state) switches++;
+      }
+      prev = c;
+    }
+    return { transitions, switches, rate: transitions ? switches / transitions : 0 };
+  }
+
+  /* ---------- report: probability helpers ---------- */
+  function repLogGamma(x) {
+    const c = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5];
+    let y = x, tmp = x + 5.5;
+    tmp -= (x + 0.5) * Math.log(tmp);
+    let ser = 1.000000000190015;
+    for (let j = 0; j < 6; j++) ser += c[j] / ++y;
+    return -tmp + Math.log(2.5066282746310005 * ser / x);
+  }
+  function repLogChoose(n, k) {
+    return repLogGamma(n + 1) - repLogGamma(k + 1) - repLogGamma(n - k + 1);
+  }
+  function repBinomSF(k, n, p) {
+    if (k <= 0) return 1;
+    if (k > n) return 0;
+    if (p <= 0) return 0;
+    if (p >= 1) return 1;
+    const logP = Math.log(p), logQ = Math.log1p(-p);
+    let sum = 0;
+    for (let i = k; i <= n; i++) {
+      sum += Math.exp(repLogChoose(n, i) + i * logP + (n - i) * logQ);
+    }
+    return Math.min(1, Math.max(0, sum));
+  }
+  function repGammaSeries(a, x) {
+    let sum = 1 / a, del = sum, ap = a;
+    for (let n = 0; n < 200; n++) {
+      ap++;
+      del *= x / ap;
+      sum += del;
+      if (Math.abs(del) < Math.abs(sum) * 1e-14) break;
+    }
+    return sum * Math.exp(-x + a * Math.log(x) - repLogGamma(a));
+  }
+  function repGammaCF(a, x) {
+    const FPMIN = 1e-300;
+    let b = x + 1 - a, c = 1 / FPMIN, d = 1 / b, h = d;
+    for (let i = 1; i <= 200; i++) {
+      const an = -i * (i - a);
+      b += 2;
+      d = an * d + b; if (Math.abs(d) < FPMIN) d = FPMIN;
+      c = b + an / c; if (Math.abs(c) < FPMIN) c = FPMIN;
+      d = 1 / d;
+      const del = d * c;
+      h *= del;
+      if (Math.abs(del - 1) < 1e-14) break;
+    }
+    return Math.exp(-x + a * Math.log(x) - repLogGamma(a)) * h;
+  }
+  function repChi2SF(x, df) {
+    if (!(x > 0) || !(df > 0)) return 1;
+    const a = df / 2, y = x / 2;
+    return y < a + 1 ? 1 - repGammaSeries(a, y) : repGammaCF(a, y);
+  }
+  function repBH(pvals, alpha = 0.05) {
+    const m = pvals.length;
+    if (!m) return { threshold: 0, qFor: () => 1 };
+    const sorted = pvals.slice().sort((a, b) => a - b);
+    let threshold = 0;
+    for (let i = m - 1; i >= 0; i--) {
+      if (sorted[i] <= alpha * (i + 1) / m) { threshold = sorted[i]; break; }
+    }
+    const qvals = new Array(m);
+    let min = 1;
+    for (let i = m - 1; i >= 0; i--) {
+      const v = Math.min(min, sorted[i] * m / (i + 1));
+      qvals[i] = v;
+      min = v;
+    }
+    function qFor(p) {
+      let lo = 0, hi = m;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (sorted[mid] <= p) lo = mid + 1;
+        else hi = mid;
+      }
+      return qvals[Math.max(0, lo - 1)];
+    }
+    return { threshold, qFor };
+  }
+  function repHash(str) {
+    let h = 2166136261;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+  function repRng(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function repGammaSample(shape, rng) {
+    const d = shape - 1 / 3, c = 1 / Math.sqrt(9 * d);
+    for (;;) {
+      let x, v;
+      do {
+        const u1 = rng() || 1e-12, u2 = rng();
+        x = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+        v = 1 + c * x;
+      } while (v <= 0);
+      v = v * v * v;
+      const u = rng() || 1e-12;
+      if (u < 1 - 0.0331 * x * x * x * x) return d * v;
+      if (Math.log(u) < 0.5 * x * x + d * (1 - v + Math.log(v))) return d * v;
+    }
+  }
+  function repDirichletModeProbs(alpha, draws, seed) {
+    const rng = repRng(seed), counts = new Uint32Array(alpha.length);
+    for (let d = 0; d < draws; d++) {
+      let max = -1, maxI = 0;
+      for (let i = 0; i < alpha.length; i++) {
+        const g = repGammaSample(alpha[i], rng);
+        if (g > max) { max = g; maxI = i; }
+      }
+      counts[maxI]++;
+    }
+    const probs = new Array(alpha.length);
+    for (let i = 0; i < alpha.length; i++) probs[i] = counts[i] / draws;
+    return probs;
+  }
+  function repScore(b) {
+    const q = Math.max(b.q == null ? 1 : b.q, 1e-12);
+    const n = Math.max(1, b.n || b.duration || 1);
+    return -Math.log10(q) * Math.sqrt(n) * (1 + Math.log2(1 + (b.duration || 1)));
+  }
+  function repUnionDuration(bursts) {
+    if (!bursts.length) return 0;
+    const arr = bursts.map(b => [b.start, b.end]).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    let total = 0, curS = arr[0][0], curE = arr[0][1];
+    for (let i = 1; i < arr.length; i++) {
+      const [s, e] = arr[i];
+      if (s <= curE + 1) curE = Math.max(curE, e);
+      else { total += curE - curS + 1; curS = s; curE = e; }
+    }
+    return total + curE - curS + 1;
+  }
+  function repBurstCellSet(bursts, grid) {
+    const set = new Set();
+    for (const b of bursts) {
+      for (let i = b.start; i <= b.end; i++) {
+        const g = grid[i];
+        if (g) set.add(g.iso + ':' + g.hour);
+      }
+    }
+    return set;
+  }
+  function repDedupeBursts(bursts) {
+    const stateBursts = bursts.filter(b => b.kind === 'state');
+    return bursts.filter(b => b.kind !== 'run' || !stateBursts.some(sb =>
+      sb.state === b.state && sb.start <= b.start && sb.end >= b.end
+    ));
+  }
+  function repTopBursts(bursts, limit) {
+    const sorted = bursts.slice().sort((a, b) => b.score - a.score);
+    const picked = [];
+    for (const b of sorted) {
+      if (picked.some(p => p.start <= b.end && b.start <= p.end)) continue;
+      picked.push(b);
+      if (picked.length >= limit) break;
+    }
+    return picked;
+  }
+  function repChi2Homogeneity(countsA, countsB) {
+    const keys = new Set([...countsA.keys(), ...countsB.keys()]);
+    let totalA = 0, totalB = 0;
+    for (const k of keys) { totalA += countsA.get(k) || 0; totalB += countsB.get(k) || 0; }
+    const N = totalA + totalB;
+    if (!totalA || !totalB || !N) return null;
+    let chi2 = 0, cols = 0;
+    for (const k of keys) {
+      const a = countsA.get(k) || 0, b = countsB.get(k) || 0, col = a + b;
+      if (!col) continue;
+      const ea = totalA * col / N, eb = totalB * col / N;
+      if (ea > 0) chi2 += (a - ea) * (a - ea) / ea;
+      if (eb > 0) chi2 += (b - eb) * (b - eb) / eb;
+      cols++;
+    }
+    const df = Math.max(0, cols - 1);
+    if (df < 1) return null;
+    return { chi2, df, p: repChi2SF(chi2, df), V: Math.sqrt(chi2 / N), totalA, totalB };
+  }
+
+  /* ---------- report: burst detection ---------- */
+  function repMergeStateBursts(bursts, grid) {
+    const byState = new Map();
+    for (const b of bursts) {
+      if (!byState.has(b.state)) byState.set(b.state, []);
+      byState.get(b.state).push(b);
+    }
+    const out = [];
+    for (const [state, arr] of byState) {
+      const covered = new Set();
+      for (const b of arr) {
+        for (let i = b.start; i <= b.end; i++) {
+          if (grid[i] && grid[i].state === state) covered.add(i);
+        }
+      }
+      const idx = [...covered].sort((a, b) => a - b);
+      const clusters = [];
+      let cur = null;
+      for (const i of idx) {
+        if (cur && i <= cur.end + 2) cur.end = i;
+        else { cur = { start: i, end: i }; clusters.push(cur); }
+      }
+      for (const cl of clusters) {
+        let n = 0, k = 0;
+        for (let i = cl.start; i <= cl.end; i++) {
+          const st = grid[i].state;
+          if (st) { n++; if (st === state) k++; }
+        }
+        if (k < 2) continue;
+        const windows = arr.filter(b => b.start <= cl.end && b.end >= cl.start);
+        if (!windows.length) continue;
+        const expected = windows[0].expected;
+        const observed = n ? k / n : 0;
+        const delta = observed - expected;
+        const ratio = expected > 0 ? observed / expected : Infinity;
+        const p = repBinomSF(k, n, expected);
+        const q = windows.reduce((m, w) => Math.min(m, w.q), 1);
+        const b = {
+          kind: 'state', state, start: cl.start, end: cl.end, L: cl.end - cl.start + 1,
+          n, k, observed, expected, delta, ratio, p, q, duration: cl.end - cl.start + 1
+        };
+        b.score = repScore(b);
+        out.push(b);
+      }
+    }
+    return out;
+  }
+  function repStateBursts(grid, pBg) {
+    const pvals = [], cand = [];
+    for (const s of EMOTIONS) {
+      const p0 = pBg.get(s) || 0;
+      for (const L of REPORT_WINDOWS) {
+        for (let t = 0; t + L <= grid.length; t++) {
+          let n = 0, k = 0;
+          for (let i = t; i < t + L; i++) {
+            const st = grid[i].state;
+            if (st) { n++; if (st === s) k++; }
+          }
+          if (n < Math.max(2, Math.ceil(L * 0.5))) continue;
+          if (k < 2) { pvals.push(1); continue; }
+          const p = repBinomSF(k, n, p0);
+          pvals.push(p);
+          if (p >= 0.05) continue;
+          const observed = k / n, delta = observed - p0;
+          const ratio = p0 > 0 ? observed / p0 : Infinity;
+          if (delta < 0.15 && !(p0 < 0.05 && ratio >= 2)) continue;
+          cand.push({ kind: 'state', state: s, start: t, end: t + L - 1, L, n, k, observed, expected: p0, delta, ratio, p, q: 1, duration: L });
+        }
+      }
+    }
+    const bh = repBH(pvals);
+    const sig = cand.filter(c => c.p <= bh.threshold).map(c => {
+      const q = bh.qFor(c.p);
+      return { ...c, q, score: repScore({ ...c, q }) };
+    });
+    return repMergeStateBursts(sig, grid);
+  }
+  function repMergeMixedBursts(bursts, grid) {
+    const arr = bursts.slice().sort((a, b) => a.start - b.start || b.end - a.end);
+    const groups = [];
+    let cur = null;
+    for (const b of arr) {
+      if (cur && b.start <= cur.end + 1) {
+        cur.end = Math.max(cur.end, b.end);
+        cur.items.push(b);
+      } else {
+        cur = { start: b.start, end: b.end, items: [b] };
+        groups.push(cur);
+      }
+    }
+    const out = [];
+    for (const g of groups) {
+      const best = g.items.slice().sort((a, b) => b.score - a.score)[0];
+      const stateSet = new Set();
+      for (const b of g.items) for (const s of b.states) stateSet.add(s);
+      const b = { ...best, states: [...stateSet], duration: best.end - best.start + 1 };
+      b.q = g.items.reduce((m, x) => Math.min(m, x.q), 1);
+      b.score = repScore(b);
+      out.push(b);
+    }
+    return out;
+  }
+  function repMixedBursts(grid, pBg) {
+    const pvals = [], cand = [];
+    const states = EMOTIONS;
+    const base = states.map(s => pBg.get(s) || 0);
+    for (const L of REPORT_WINDOWS) {
+      for (let t = 0; t + L <= grid.length; t++) {
+        const counts = new Map();
+        let n = 0;
+        for (let i = t; i < t + L; i++) {
+          const st = grid[i].state;
+          if (st) { n++; counts.set(st, (counts.get(st) || 0) + 1); }
+        }
+        if (n < Math.max(4, Math.ceil(L * 0.5))) continue;
+        const core = [];
+        let otherO = 0, otherE = 0;
+        for (let si = 0; si < states.length; si++) {
+          const s = states[si], E = n * base[si], O = counts.get(s) || 0;
+          if (E >= 0.5) core.push({ s, O, E });
+          else { otherO += O; otherE += E; }
+        }
+        if (core.length < 2) continue;
+        let G = 0;
+        const contribs = [];
+        for (const c of core) {
+          if (c.O > 0 && c.E > 0) {
+            const term = 2 * c.O * Math.log(c.O / c.E);
+            G += term;
+            contribs.push({ state: c.s, O: c.O, E: c.E, term });
+          }
+        }
+        if (otherO > 0 && otherE > 0) {
+          const term = 2 * otherO * Math.log(otherO / otherE);
+          G += term;
+          contribs.push({ state: 'прочие', O: otherO, E: otherE, term });
+        }
+        const cats = core.length + (otherO > 0 ? 1 : 0);
+        const df = Math.max(1, cats - 1);
+        const p = repChi2SF(G, df);
+        pvals.push(p);
+        const V = Math.sqrt(G / (n * df));
+        if (p >= 0.05 || V < 0.15) continue;
+        contribs.sort((a, b) => b.term - a.term);
+        const top = contribs.filter(c => c.O > c.E && c.O >= 2 && c.state !== 'прочие').slice(0, 3).map(c => c.state);
+        if (!top.length) continue;
+        cand.push({ kind: 'mixed', start: t, end: t + L - 1, L, n, G, df, V, p, q: 1, states: top, duration: L });
+      }
+    }
+    const bh = repBH(pvals);
+    const sig = cand.filter(c => c.p <= bh.threshold).map(c => {
+      const q = bh.qFor(c.p);
+      return { ...c, q, score: repScore({ ...c, q }) };
+    });
+    return repMergeMixedBursts(sig, grid);
+  }
+  function repLongRuns(grid, pBg) {
+    const trans = new Map(), totals = new Map();
+    for (let i = 1; i < grid.length; i++) {
+      const a = grid[i - 1], b = grid[i];
+      if (!a.state || !b.state) continue;
+      if (!(a.iso === b.iso && b.hour === a.hour + 1)) continue;
+      totals.set(a.state, (totals.get(a.state) || 0) + 1);
+      let m = trans.get(a.state);
+      if (!m) { m = new Map(); trans.set(a.state, m); }
+      m.set(b.state, (m.get(b.state) || 0) + 1);
+    }
+    const runs = [];
+    let start = -1, state = '';
+    for (let i = 0; i <= grid.length; i++) {
+      const c = i < grid.length ? grid[i] : null;
+      const prev = i > 0 ? grid[i - 1] : null;
+      const contiguous = c && prev && c.state && prev.state && c.iso === prev.iso && c.hour === prev.hour + 1;
+      if (c && c.state) {
+        if (start < 0 || c.state !== state || !contiguous) {
+          if (start >= 0 && state) runs.push({ state, start, end: i - 1, length: i - start });
+          start = i;
+          state = c.state;
+        }
+      } else {
+        if (start >= 0 && state) runs.push({ state, start, end: i - 1, length: i - start });
+        start = -1;
+        state = '';
+      }
+    }
+    const pvals = [], out = [];
+    for (const r of runs) {
+      if (r.length < 3) continue;
+      const totalFrom = totals.get(r.state) || 0;
+      const self = trans.get(r.state) ? (trans.get(r.state).get(r.state) || 0) : 0;
+      const pss = (self + 0.5) / (totalFrom + 0.5 * EMOTIONS.length);
+      const p = pss > 0 && pss < 1 ? Math.pow(pss, r.length - 1) : 1;
+      pvals.push(p);
+      if (p >= 0.05) continue;
+      const expected = pBg.get(r.state) || 0;
+      out.push({
+        kind: 'run', state: r.state, start: r.start, end: r.end, L: r.length, duration: r.length,
+        n: r.length, k: r.length, observed: 1, expected, delta: 1 - expected,
+        ratio: expected > 0 ? 1 / expected : Infinity, p, q: 1, pss,
+        expectedRun: pss < 1 ? 1 / (1 - pss) : Infinity,
+        p95: pss > 0 && pss < 1 ? Math.ceil(1 + Math.log(0.05) / Math.log(pss)) : Infinity
+      });
+    }
+    const bh = repBH(pvals);
+    return out.filter(r => r.p <= bh.threshold).map(r => {
+      const q = bh.qFor(r.p);
+      return { ...r, q, score: repScore({ ...r, q }) };
+    });
+  }
+  function repProfile(cells, mode) {
+    const rows = mode === 'week' ? WEEKDAYS : ['1', '2', '3', '4', '5'];
+    const map = new Map();
+    for (const c of cells) {
+      const row = mode === 'week' ? c.dow : c.week - 1;
+      if (row < 0 || row >= rows.length) continue;
+      const key = row + ':' + c.hour;
+      let m = map.get(key);
+      if (!m) { m = new Map(); map.set(key, m); }
+      m.set(c.state, (m.get(c.state) || 0) + 1);
+    }
+    const grid = [];
+    for (let r = 0; r < rows.length; r++) {
+      const row = [];
+      for (const h of HOURS) {
+        const m = map.get(r + ':' + h);
+        if (!m) { row.push(null); continue; }
+        let total = 0, top = '', topN = 0;
+        for (const [s, n] of m) {
+          total += n;
+          if (n > topN) { top = s; topN = n; }
+        }
+        row.push({ total, top, topN, share: total ? topN / total : 0 });
+      }
+      grid.push(row);
+    }
+    return { rows, grid };
+  }
+  function repAnalyze(period) {
+    const days = repPeriodInfo(period.start, period.end);
+    const data = repCollect(days);
+    const cells = data.cells, N = cells.length;
+    const counts = repCounts(cells);
+    const priorStart = addDays(period.start, period.mode === 'week' ? -28 : -90);
+    const priorCells = repCollect(repPeriodInfo(priorStart, addDays(period.start, -1))).cells;
+    const priorCounts = repCounts(priorCells);
+    let priorTotal = 0;
+    for (const n of priorCounts.values()) priorTotal += n;
+    const alpha = EMOTIONS.map(e => 1 + (priorTotal ? (priorCounts.get(e) || 0) / priorTotal : 1 / EMOTIONS.length) * 12);
+    const modeProbs = N ? repDirichletModeProbs(alpha, REPORT_DRAWS, repHash(period.start + '|' + period.end + '|' + period.mode)) : null;
+    const periodBg = repBackground(cells, null);
+    const priorBg = repBackground(priorCells, null);
+    const baseline = priorBg && priorBg.dayCount >= 3 ? priorBg : periodBg;
+    const grid = repBuildGrid(days);
+    let bursts = [];
+    let bgForReport = periodBg;
+    if (periodBg && N >= 6) {
+      const detect = () => [
+        ...repStateBursts(grid, baseline.pBg),
+        ...repMixedBursts(grid, baseline.pBg),
+        ...repLongRuns(grid, baseline.pBg)
+      ];
+      bursts = repDedupeBursts(detect());
+      const excluded = repBurstCellSet(bursts, grid);
+      const bgAfter = excluded.size ? repBackground(cells, excluded) : periodBg;
+      if (bgAfter && bgAfter.bg !== periodBg.bg) {
+        bursts = repDedupeBursts(detect());
+        bgAfter.changed = true;
+        bgForReport = bgAfter;
+      }
+    }
+    bursts.sort((a, b) => b.score - a.score);
+    const stability = repStability(cells);
+    let comparison = null, comparisonLabel = '';
+    if (period.mode === 'week') {
+      const prevCounts = repCounts(repCollect(repPeriodInfo(addDays(period.start, -28), addDays(period.start, -1))).cells);
+      comparison = repChi2Homogeneity(counts, prevCounts);
+      comparisonLabel = 'Неделя vs предыдущие 4 недели';
+    } else {
+      const d = fromISO(period.start);
+      const pStart = toISO(new Date(d.getFullYear(), d.getMonth() - 1, 1));
+      const pEnd = toISO(new Date(d.getFullYear(), d.getMonth(), 0));
+      const prevCounts = repCounts(repCollect(repPeriodInfo(pStart, pEnd)).cells);
+      comparison = repChi2Homogeneity(counts, prevCounts);
+      comparisonLabel = 'Месяц vs предыдущий месяц';
+    }
+    const sorted = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'ru'));
+    const top = sorted.slice(0, 3).map(([state, n]) => {
+      const [lo, hi] = repWilson(n, N);
+      const idx = EMOTIONS.indexOf(state);
+      return { state, n, share: n / N, lo, hi, modeProb: modeProbs && idx >= 0 ? modeProbs[idx] : 0 };
+    });
+    let entropy = 0;
+    for (const n of counts.values()) {
+      const p = n / N;
+      if (p > 0) entropy -= p * Math.log(p);
+    }
+    const entropyBits = entropy / Math.LN2;
+    const entropyNorm = counts.size > 1 ? entropy / Math.log(counts.size) : 0;
+    const topBursts = repTopBursts(bursts, 3);
+    return {
+      period, days, data, cells, N, counts, sorted, top, modeProbs,
+      periodBg: bgForReport, priorBg, baseline, grid, bursts, topBursts,
+      stability, entropy, entropyBits, entropyNorm,
+      comparison, comparisonLabel
+    };
+  }
+
   function renderReport() {
     const r = reportRange();
     const a = fromISO(r.start), b = fromISO(r.end);
@@ -1960,54 +2689,363 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
       : `${REPORT_MONTHS[a.getMonth()]} ${a.getFullYear()}`;
     $('repWeek').classList.toggle('active', reportMode === 'week');
     $('repMonth').classList.toggle('active', reportMode === 'month');
-    const counts = new Map();
-    let marks = 0, days = 0;
-    for (let iso = r.start; iso <= r.end; iso = addDays(iso, 1)) {
-      const day = journal.days[iso];
-      if (!day || !day.hours) continue;
-      let any = false;
-      for (const h of HOURS) {
-        const e = day.hours[h] && day.hours[h].emotion;
-        if (e) { counts.set(e, (counts.get(e) || 0) + 1); marks++; any = true; }
-      }
-      if (any) days++;
-    }
-    const list = [...counts].sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0], 'ru'));
     const body = $('repBody');
     body.replaceChildren();
-    if (!list.length) {
-      const p = document.createElement('p');
-      p.className = 'history-empty';
-      p.textContent = 'За этот период нет отметок эмоций.';
-      body.appendChild(p);
+    if (!journal) return;
+    try {
+      repRender(body, repAnalyze({ start: r.start, end: r.end, mode: reportMode }));
+    } catch (e) {
+      console.error(e);
+      body.appendChild(repEl('p', 'rep-empty', 'Не удалось построить отчёт.'));
+    }
+  }
+  /* ---------- report: rendering ---------- */
+  function repKpis(items) {
+    const wrap = repEl('div', 'rep-kpis');
+    for (const [value, label] of items) {
+      const box = repEl('div', 'rep-kpi');
+      box.append(repEl('b', '', value), repEl('span', '', label));
+      wrap.appendChild(box);
+    }
+    return wrap;
+  }
+  function repSection(title) {
+    const sec = repEl('section', 'rep-card');
+    sec.appendChild(repEl('h3', 'rep-card-title', title));
+    return sec;
+  }
+  function repNote(text) {
+    return repEl('p', 'rep-note', text);
+  }
+  function repFmtInterval(b, grid) {
+    const a = grid[b.start], z = grid[b.end];
+    if (!a || !z) return '';
+    const h1 = `${pad2(a.hour)}:00`, h2 = `${pad2(z.hour + 1)}:00`;
+    if (a.iso === z.iso) return `${repFmtDate(a.iso)}, ${h1}–${h2}`;
+    return `${repFmtDate(a.iso)}, ${h1} – ${repFmtDate(z.iso)}, ${h2}`;
+  }
+  function repHoursWord(n) {
+    const m10 = n % 10, m100 = n % 100;
+    if (m10 === 1 && m100 !== 11) return 'час';
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'часа';
+    return 'часов';
+  }
+  function repHexToRgba(hex, alpha) {
+    const n = parseInt(hex.slice(1), 16);
+    return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${alpha})`;
+  }
+  function repRender(body, R) {
+    const range = `${repFmtDate(R.period.start)} – ${repFmtDate(R.period.end)}`;
+    const q = repSection('Качество данных');
+    q.appendChild(repKpis([
+      [String(R.N), 'валидных часов'],
+      [String(Math.max(0, R.data.expected - R.N)), 'пропусков'],
+      [repFmtPct(R.N / Math.max(R.data.expected, R.N)), 'заполненность'],
+      [String(new Set(R.cells.map(c => c.iso)).size), 'дней с отметками']
+    ]));
+    body.appendChild(q);
+    if (!R.N) {
+      body.appendChild(repEl('p', 'rep-empty', 'За этот период нет отметок эмоций.'));
       return;
     }
-    const top = list.filter(x => x[1] === list[0][1]).map(x => x[0]);
-    const box = document.createElement('div');
-    box.className = 'rep-top';
-    const small = document.createElement('small');
-    small.textContent = reportMode === 'week' ? 'Чаще всего за неделю' : 'Чаще всего за месяц';
-    const strong = document.createElement('strong');
-    strong.textContent = top.join(' · ');
-    const note = document.createElement('span');
-    note.textContent = `${list[0][1]} ${plural(list[0][1], 'раз', 'раза', 'раз')} из ${marks} · дней с отметками: ${days}` + (top.length > 1 ? ' · поровну' : '');
-    box.append(small, strong, note);
-    body.appendChild(box);
-    list.slice(0, 8).forEach(([name, n]) => {
-      const row = document.createElement('div');
-      row.className = 'rep-row';
-      const l = document.createElement('span');
-      l.textContent = name;
-      const v = document.createElement('span');
-      v.textContent = `${n} · ${Math.round(n / marks * 100)}%`;
-      const bar = document.createElement('div');
-      bar.className = 'bar';
-      const fill = document.createElement('i');
-      fill.style.width = (n / list[0][1] * 100) + '%';
+
+    const modeSec = repSection('Самое частое состояние');
+    const list = repEl('ol', 'rep-top-list');
+    R.top.forEach((t, i) => {
+      const li = repEl('li', 'rep-top-item' + (i === 0 ? ' top' : ''));
+      const name = repEl('span', 'rep-name', t.state);
+      const val = repEl('span', 'rep-val', `${t.n} · ${repFmtPct(t.share)}`);
+      const sub = repEl('span', 'rep-sub', `95% ДИ: ${repFmtPct(t.lo)}–${repFmtPct(t.hi)} · шанс быть самой частой: ${repFmtPct(t.modeProb)}`);
+      const bar = repEl('div', 'bar');
+      const fill = repEl('i');
+      fill.style.width = (R.top[0].n ? t.n / R.top[0].n * 100 : 0) + '%';
       bar.appendChild(fill);
-      row.append(l, v, bar);
-      body.appendChild(row);
+      li.append(name, val, sub, bar);
+      list.appendChild(li);
     });
+    modeSec.appendChild(list);
+    body.appendChild(modeSec);
+
+    if (R.periodBg) {
+      const bgSec = repSection('Фоновое состояние');
+      bgSec.appendChild(repKpis([
+        [R.periodBg.bg, 'фон периода'],
+        [repFmtPct(R.periodBg.share), 'робастная доля'],
+        [repFmtNum(R.periodBg.avgRun, 1), 'часов в серии'],
+        [repFmtPct(R.periodBg.top2Share), 'дней в топ-2']
+      ]));
+      body.appendChild(bgSec);
+    }
+
+    repRenderBursts(body, R);
+    repRenderStability(body, R);
+    repRenderProfile(body, R);
+    repRenderComparison(body, R);
+    repRenderMethod(body, R);
+  }
+  const REP_KIND_LABEL = { state: 'Всплеск эмоции', mixed: 'Смена фона', run: 'Затяжное состояние' };
+  function repStrength(q) {
+    if (q < 0.001) return ['очень отчётливый', 'Совпадение по случайности крайне маловероятно'];
+    if (q < 0.01) return ['отчётливый', 'Совпадение по случайности маловероятно'];
+    return ['умеренный', 'Отклонение заметное, но менее надёжное'];
+  }
+  function repCompareRows(rows) {
+    const wrap = repEl('div', 'rep-cmp');
+    for (const r of rows) {
+      const row = repEl('div');
+      row.appendChild(repEl('span', 'rep-cmp-label', r.label));
+      for (const [cls, title, value, text] of [['usual', 'обычно', r.usual, r.usualText], ['now', 'в эпизоде', r.now, r.nowText]]) {
+        const line = repEl('div', 'rep-cmp-line');
+        const bar = repEl('div', 'rep-cmp-bar');
+        const fill = repEl('i', cls);
+        fill.style.width = Math.min(100, Math.max(2, value / r.max * 100)) + '%';
+        bar.appendChild(fill);
+        line.append(repEl('em', '', title), bar, repEl('b', '', text));
+        row.appendChild(line);
+      }
+      wrap.appendChild(row);
+    }
+    return wrap;
+  }
+  function repBurstCard(b, R) {
+    const box = repEl('div', 'rep-burst');
+    const head = repEl('div', 'rep-burst-head');
+    const title = b.kind === 'mixed' ? 'Эмоциональный фон изменился' : `«${b.state}»`;
+    head.append(repEl('b', '', title), repEl('span', '', repFmtInterval(b, R.grid)));
+    box.appendChild(head);
+
+    const tags = repEl('div', 'rep-burst-tags');
+    tags.appendChild(repEl('span', 'rep-badge info', REP_KIND_LABEL[b.kind] || 'Всплеск'));
+    const [label, hint] = repStrength(b.q);
+    const strength = repEl('span', 'rep-badge' + (b.q < 0.01 ? ' warn' : ''), label);
+    strength.title = hint;
+    tags.append(strength, repEl('span', 'rep-badge', `${b.duration} ${repHoursWord(b.duration)}`));
+    box.appendChild(tags);
+
+    let text = '', rows = [];
+    if (b.kind === 'state') {
+      text = `Эмоция отмечена в ${b.k} из ${b.n} ${repHoursWord(b.n)} этого отрезка, хотя обычно встречается заметно реже.`;
+      const max = Math.max(b.observed, b.expected, 0.05);
+      rows.push({ label: b.state, usual: b.expected, now: b.observed, max, usualText: repFmtPct(b.expected), nowText: repFmtPct(b.observed) });
+    } else if (b.kind === 'run') {
+      text = `Эмоция держалась ${b.duration} ${repHoursWord(b.duration)} подряд без смены.`;
+      if (Number.isFinite(b.expectedRun)) {
+        text += ' Для этого человека такие серии обычно короче.';
+        const max = Math.max(b.duration, b.expectedRun, 1);
+        rows.push({ label: 'Длина серии', usual: b.expectedRun, now: b.duration, max, usualText: `${repFmtNum(b.expectedRun, 1)} ч`, nowText: `${b.duration} ч` });
+      }
+    } else {
+      const counts = new Map();
+      let n = 0;
+      for (let i = b.start; i <= b.end; i++) {
+        const st = R.grid[i] && R.grid[i].state;
+        if (st) { n++; counts.set(st, (counts.get(st) || 0) + 1); }
+      }
+      text = `Набор эмоций в этом отрезке заметно отличался от обычного. Чаще обычного отмечались: ${b.states.join(', ')}.`;
+      const items = b.states.map(st => ({ st, now: n ? (counts.get(st) || 0) / n : 0, usual: R.baseline.pBg.get(st) || 0 }));
+      const max = Math.max(0.05, ...items.map(x => Math.max(x.now, x.usual)));
+      for (const x of items) rows.push({ label: x.st, usual: x.usual, now: x.now, max, usualText: repFmtPct(x.usual), nowText: repFmtPct(x.now) });
+    }
+    box.appendChild(repEl('p', 'rep-burst-text', text));
+    if (rows.length) box.appendChild(repCompareRows(rows));
+    return box;
+  }
+  function repRenderBursts(body, R) {
+    const sec = repSection('Всплески');
+    sec.appendChild(repEl('p', 'rep-lead', 'Всплеск — отрезок времени, когда эмоция встречалась заметно чаще, чем обычно.'));
+    const total = repUnionDuration(R.bursts);
+    sec.appendChild(repKpis([
+      [String(R.bursts.length), 'всплесков'],
+      [String(total), 'часов во всплесках'],
+      [repFmtPct(R.N ? Math.min(1, total / R.N) : 0), 'периода во всплесках'],
+      [String(R.bursts.length ? Math.max(...R.bursts.map(b => b.duration)) : 0), 'самый длинный, ч']
+    ]));
+    if (!R.bursts.length) {
+      sec.appendChild(repNote('В этом периоде заметных всплесков не найдено: эмоции не отклонялись от обычного уровня.'));
+      body.appendChild(sec);
+      return;
+    }
+    const wrap = repEl('div');
+    wrap.style.marginTop = '12px';
+    for (const b of R.topBursts) wrap.appendChild(repBurstCard(b, R));
+    sec.appendChild(wrap);
+    if (R.bursts.length > R.topBursts.length) {
+      sec.appendChild(repEl('p', 'rep-more', `Показаны самые яркие эпизоды. Полный список (${R.bursts.length}) — в разделе «Методика».`));
+    }
+    body.appendChild(sec);
+  }
+  function repRenderStability(body, R) {
+    const sec = repSection('Стабильность');
+    sec.appendChild(repKpis([
+      [repFmtNum(R.entropyBits, 2), 'энтропия, бит'],
+      [repFmtPct(R.entropyNorm), 'нормированная'],
+      [String(R.stability.switches), 'смен состояний'],
+      [repFmtPct(R.stability.rate), 'частота смен']
+    ]));
+    body.appendChild(sec);
+  }
+  function repRenderProfile(body, R) {
+    const sec = repSection(R.period.mode === 'week' ? 'Профиль: день недели × час' : 'Профиль: неделя месяца × час');
+    const profile = repProfile(R.cells, R.period.mode);
+    const wrap = repEl('div', 'rep-heat-wrap');
+    const heat = repEl('div', 'rep-heat');
+    heat.appendChild(repEl('div', 'rep-heat-h', ''));
+    for (const h of HOURS) heat.appendChild(repEl('div', 'rep-heat-h', String(h)));
+    profile.rows.forEach((label, r) => {
+      heat.appendChild(repEl('div', 'rep-heat-d', label));
+      profile.grid[r].forEach((cell, ci) => {
+        const h = HOURS[ci];
+        const el = repEl('div', 'rep-heat-c' + (cell ? '' : ' empty'));
+        if (!cell) {
+          el.textContent = '·';
+          el.title = `${label}, ${h}:00 — нет данных`;
+        } else {
+          const gi = REPORT_GROUP_INDEX.get(cell.top);
+          const color = REPORT_GROUP_COLORS[gi == null ? 0 : gi];
+          const alpha = 0.12 + 0.78 * cell.share;
+          el.style.background = repHexToRgba(color, alpha);
+          el.style.color = alpha > 0.55 ? '#fff' : '#3d3e35';
+          el.textContent = String(cell.total);
+          el.title = `${label}, ${h}:00 — ${cell.top}: ${cell.topN} из ${cell.total} (${repFmtPct(cell.share)})`;
+        }
+        el.addEventListener('click', () => { if (el.title) toast(el.title); });
+        heat.appendChild(el);
+      });
+    });
+    wrap.appendChild(heat);
+    sec.appendChild(wrap);
+    const legend = repEl('div', 'rep-legend');
+    EMOTION_GROUPS.forEach((g, gi) => {
+      const item = repEl('span');
+      const sw = repEl('i');
+      sw.style.background = REPORT_GROUP_COLORS[gi];
+      item.append(sw, document.createTextNode(g[0]));
+      item.title = g.join(' · ');
+      legend.appendChild(item);
+    });
+    sec.appendChild(legend);
+    body.appendChild(sec);
+  }
+  function repRenderComparison(body, R) {
+    const sec = repSection('Сравнение');
+    if (!R.comparison) {
+      sec.appendChild(repNote('Недостаточно данных для сравнения распределений.'));
+      body.appendChild(sec);
+      return;
+    }
+    const c = R.comparison;
+    sec.appendChild(repKpis([
+      [repFmtNum(c.chi2, 1), 'χ²'],
+      [String(c.df), 'степеней свободы'],
+      [repFmtP(c.p), 'p-value'],
+      [repFmtNum(c.V, 2), "Cramér's V"]
+    ]));
+    sec.appendChild(repNote(`${R.comparisonLabel}: ${c.p < 0.05 ? 'набор эмоций заметно отличается.' : 'значимых различий нет.'}`));
+    body.appendChild(sec);
+  }
+  function repP(lead, text) {
+    const p = repEl('p');
+    if (lead) p.appendChild(repEl('b', '', lead + ' '));
+    p.appendChild(document.createTextNode(text));
+    return p;
+  }
+  function repMethodItem(title, nodes, open) {
+    const d = repEl('details', 'rep-method-item');
+    if (open) d.open = true;
+    d.appendChild(repEl('summary', '', title));
+    const inner = repEl('div', 'rep-method-body');
+    nodes.forEach(n => inner.appendChild(n));
+    d.appendChild(inner);
+    return d;
+  }
+  function repBurstTable(R) {
+    const wrap = repEl('div', 'rep-table-wrap');
+    const table = repEl('table', 'rep-table');
+    const head = repEl('tr');
+    ['Интервал', 'Тип', 'Эмоция', 'Набл.', 'Обычно', 'Δ', '×', 'p', 'q', 'Ч', 'Сила', 'Доп.'].forEach(h => head.appendChild(repEl('th', '', h)));
+    const thead = repEl('thead');
+    thead.appendChild(head);
+    table.appendChild(thead);
+    const tbody = repEl('tbody');
+    for (const b of R.bursts) {
+      const tr = repEl('tr');
+      const isMixed = b.kind === 'mixed';
+      const extra = isMixed
+        ? `G=${repFmtNum(b.G, 1)}, df=${b.df}, V=${repFmtNum(b.V, 2)}`
+        : b.kind === 'run'
+          ? `ожид. серия ${repFmtNum(b.expectedRun, 1)} ч, 95-й перц. ${repFmtNum(b.p95, 0)} ч`
+          : `${b.k} из ${b.n}`;
+      const cells = [
+        [repFmtInterval(b, R.grid)],
+        [REP_KIND_LABEL[b.kind] || ''],
+        [isMixed ? b.states.join(', ') : b.state],
+        [isMixed ? '—' : repFmtPct(b.observed), true],
+        [isMixed ? '—' : repFmtPct(b.expected), true],
+        [isMixed ? '—' : repFmtPct(b.delta), true],
+        [isMixed ? '—' : repFmtNum(b.ratio, 1), true],
+        [repFmtP(b.p), true],
+        [repFmtP(b.q), true],
+        [String(b.duration), true],
+        [repFmtNum(b.score, 0), true],
+        [extra]
+      ];
+      for (const [t, num] of cells) tr.appendChild(repEl('td', num ? 'num' : '', t));
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    wrap.appendChild(table);
+    return wrap;
+  }
+  function repRenderMethod(body, R) {
+    const sec = repSection('Методика');
+    const range = `${repFmtDate(R.period.start)} – ${repFmtDate(R.period.end)}`;
+
+    // 1. data of this report
+    const dataNodes = [
+      repP('Период:', `${range}. Уже прошло часов: ${R.data.expected}; валидных отметок: ${R.N}.`),
+      repP('Особые часы:', `часов с текстом без эмоции — ${R.data.textOnly}; дубликатов — ${R.data.duplicates}. Пропуски не заполняются какой-либо эмоцией: они просто не учитываются.`)
+    ];
+    if (R.baseline && R.baseline.bg) {
+      const fromPrior = R.baseline === R.priorBg;
+      const src = fromPrior ? (R.period.mode === 'week' ? 'предыдущих 4 недель' : 'предыдущих 3 месяцев') : 'самого периода (истории для опоры недостаточно)';
+      dataNodes.push(repP('Обычный уровень для поиска всплесков:', `рассчитан по данным ${src}; опорная эмоция — «${R.baseline.bg}» (${repFmtPct(R.baseline.share)} по медиане дней).`));
+    }
+    if (R.periodBg) {
+      dataNodes.push(repP('Устойчивость фона:', `смен состояния среди фоновых часов — ${R.periodBg.switches} из ${R.periodBg.transitions} переходов; в среднем ${repFmtNum(R.periodBg.avgRun, 1)} ч подряд; в топ-2 дня входит в ${repFmtPct(R.periodBg.top2Share)} дней.${R.periodBg.changed ? ' После исключения всплесков фон изменился, поэтому поиск был выполнен повторно.' : ''}`));
+    }
+    sec.appendChild(repMethodItem('Данные этого отчёта', dataNodes, false));
+
+    // 2. how indicators are computed
+    sec.appendChild(repMethodItem('Самое частое состояние', [
+      repP('', 'Считается число часов с каждой эмоцией за период. 95% ДИ (интервал Уилсона) — диапазон, в котором, вероятно, лежит истинная доля эмоции.'),
+      repP('Шанс быть самой частой', `— результат компьютерной симуляции (метод Монте-Карло, ${REPORT_DRAWS} повторов) по модели Дирихле–мультиномиальной; в качестве опоры берётся распределение эмоций за предыдущие 4 недели (для месяца — 3 месяца). Чем больше часов в периоде, тем надёжнее оценка.`)
+    ]));
+    sec.appendChild(repMethodItem('Фоновое состояние', [
+      repP('', 'Для каждого дня считается доля каждой эмоции; фоном считается эмоция с наибольшей медианой дневных долей. Редкие дни с сильными всплесками почти не влияют на такую оценку, поэтому фон может отличаться от самой частой эмоции.'),
+      repP('', 'После обнаружения всплесков фон пересчитывается без них: если он не изменился, он устойчив. «Часов в серии» — средняя длительность непрерывного пребывания в фоновой эмоции; «дней в топ-2» — доля дней, где она входит в две самые частые.')
+    ]));
+    sec.appendChild(repMethodItem('Всплески: как они находятся', [
+      repP('Всплеск эмоции.', 'Для каждой эмоции просматриваются окна по 3, 6, 12 и 24 часа. Число часов с этой эмоцией сравнивается с ожидаемым при обычном уровне (биномиальный критерий). Эпизод засчитывается, если отклонение статистически значимо после поправки Бенджамини–Хохберга (q < 0,05), превышает обычную долю не менее чем на 15 процентных пунктов (для редких эмоций — не менее чем в 2 раза) и содержит минимум 2 часа с этой эмоцией. Перекрывающиеся окна объединяются.'),
+      repP('Смена фона.', 'Окно целиком сравнивается с обычным набором эмоций G-критерием; учитывается сила различия (V ≥ 0,15). В описании названы эмоции, которые встречались чаще всего сверх ожидаемого.'),
+      repP('Затяжное состояние.', 'Серия из 3 и более часов одной эмоции. Её вероятность оценивается по цепи Маркова: чем реже эмоция обычно удерживается, тем необычнее длинная серия. Серия, полностью лежащая внутри всплеска эмоции, отдельно не показывается.'),
+      repP('Сила и надёжность.', 'Метка «очень отчётливый» — q < 0,001, «отчётливый» — q < 0,01, «умеренный» — остальные. «Сила» в таблице объединяет надёжность, число часов и длительность; по ней выбираются самые яркие эпизоды, не пересекающиеся по времени.')
+    ]));
+    if (R.bursts.length) {
+      sec.appendChild(repMethodItem(`Все всплески: технические показатели (${R.bursts.length})`, [
+        repBurstTable(R),
+        repP('Обозначения.', 'Набл. — доля часов с эмоцией в эпизоде; Обычно — её ожидаемая доля; Δ — разница в процентных пунктах; × — во сколько раз чаще обычного; p — вероятность увидеть такое отклонение случайно; q — то же с поправкой на множество проверок; Ч — длительность в часах; G, df, V — показатели G-критерия (статистика, степени свободы, сила различия).')
+      ]));
+    }
+    sec.appendChild(repMethodItem('Стабильность', [
+      repP('', 'Энтропия H = −Σ p·log p по наблюдаемым эмоциям: чем она выше, тем разнообразнее набор эмоций. Нормированная энтропия — доля от максимально возможной при таком числе эмоций. Частота смен — доля переходов между соседними часами внутри дня, где эмоция изменилась.')
+    ]));
+    sec.appendChild(repMethodItem('Профиль', [
+      repP('', 'Цвет ячейки — группа самой частой эмоции в это время, насыщенность — насколько она преобладает, число — количество отметок. Наведите или нажмите на ячейку, чтобы увидеть подробности.')
+    ]));
+    sec.appendChild(repMethodItem('Сравнение', [
+      repP('', 'χ²-тест однородности проверяет, различаются ли наборы эмоций в двух периодах; Cramér\'s V показывает силу различия (0 — нет, 1 — полное). Неделя сравнивается с предыдущими 4 неделями, месяц — с предыдущим месяцем. При малом числе отметок результат ориентировочный.')
+    ]));
+    body.appendChild(sec);
   }
   function shiftReport(dir) {
     if (reportMode === 'week') reportAnchor = addDays(reportAnchor, 7 * dir);
@@ -2191,7 +3229,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
     /* без await до share(): iOS требует, чтобы диалог вызывался прямо из касания */
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) { toast('Нет сохранённых данных.'); return; }
-    const name = `myjournal-backup-${todayISO()}`; /* без расширения */
+    const name = `myjournal-backup-${todayISO()}.json`;
     let file = null;
     try { file = new File([raw], name, { type: 'application/json' }); } catch (e) {}
     if (file && navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -2205,7 +3243,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
       }
     }
     try {
-      const url = URL.createObjectURL(new Blob([raw], { type: 'application/octet-stream' }));
+      const url = URL.createObjectURL(new Blob([raw], { type: 'application/json' }));
       if ('download' in HTMLAnchorElement.prototype) {
         const a = document.createElement('a');
         a.href = url;
