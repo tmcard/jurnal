@@ -767,6 +767,8 @@ dialog:not([open]){display:none}
   .nav-dates .date-jump{flex:1 1 90px;min-width:90px;width:auto}
   .nav-dates .save-status{flex:0 0 auto;font-size:11px}
 }
+.paste-box{display:block;width:100%;box-sizing:border-box;margin:8px 0;padding:10px 12px;border:1px solid var(--line,#d3d2c1);border-radius:4px;background:#fbf9ef;color:var(--ink,#3d3e35);font:inherit;font-size:16px;resize:none}
+.paste-box[hidden]{display:none}
 .lock-import{margin-top:12px;text-align:center}
 .lock-import-btn{background:none;border:0;color:var(--green-deep,#526a24);font:inherit;font-size:13px;text-decoration:underline;min-height:44px;padding:0 10px;cursor:pointer}
 .lock-import-btn:disabled{opacity:.5}
@@ -818,6 +820,8 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
     <form class="lock-form" id="lockForm" method="post" autocomplete="on" novalidate></form>
     <div class="lock-import" id="lockImport">
       <button type="button" class="lock-import-btn" id="lockImpBtn">Импортировать копию журнала</button>
+      <button type="button" class="lock-import-btn" id="lockPasteBtn">Вставить копию из буфера</button>
+      <textarea class="paste-box" id="lockPasteBox" rows="2" hidden placeholder="Нажмите и удерживайте здесь → «Вставить»" aria-label="Вставьте копию журнала" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
       <input type="file" id="lockImpFile" hidden>
       <div class="lock-import-panel" id="lockImpPanel" hidden>
         <input class="sr-only" type="text" name="username" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly>
@@ -916,8 +920,11 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
     <div class="row">
       <button class="btn" id="exportBtn" type="button">Скачать копию</button>
       <button class="btn" id="importBtn" type="button">Импортировать</button>
+      <button class="btn" id="pasteBtn" type="button">Вставить из буфера</button>
+      <button class="btn" id="copyBtn" type="button">Копировать в буфер</button>
       <input type="file" id="importFile" hidden>
     </div>
+    <textarea class="paste-box" id="pasteBox" rows="2" hidden placeholder="Нажмите и удерживайте здесь → «Вставить»" aria-label="Вставьте копию журнала" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
     <div class="import-panel" id="importPanel" hidden>
       <p class="file-name" id="importName"></p>
       <input class="sr-only" type="text" name="username" value="Мой журнал" autocomplete="username" tabindex="-1" aria-hidden="true" readonly>
@@ -1466,6 +1473,38 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
   });
 
   /* ---------- import from the login screen ---------- */
+  /* вставка копии из буфера обмена (файл или текст) */
+  function attachPaste(btnId, boxId, getHandler) {
+    const btn = $(btnId), box = $(boxId);
+    const feed = (text, name) => {
+      if (text && text.trim()) getHandler()(new File([text.trim()], name));
+    };
+    box.addEventListener('paste', ev => {
+      const cd = ev.clipboardData;
+      if (cd) {
+        if (cd.files && cd.files.length) { ev.preventDefault(); getHandler()(cd.files[0]); }
+        else { const t = cd.getData('text'); if (t) { ev.preventDefault(); feed(t, 'из буфера обмена'); } }
+      }
+      setTimeout(() => { box.value = ''; box.hidden = true; }, 0);
+    });
+    btn.addEventListener('click', async () => {
+      try {
+        const t = await navigator.clipboard.readText();
+        if (t && t.trim()) { feed(t, 'из буфера обмена'); return; }
+      } catch (e) {}
+      box.hidden = false;
+      box.focus();
+      toast('В буфере нет текста копии. Вставьте файл или текст в поле.');
+    });
+  }
+  attachPaste('pasteBtn', 'pasteBox', () => handleImportFile);
+  attachPaste('lockPasteBtn', 'lockPasteBox', () => handleLockImpFile);
+  $('copyBtn').addEventListener('click', async () => {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) { toast('Нет сохранённых данных.'); return; }
+    try { await navigator.clipboard.writeText(raw); toast('Зашифрованная копия скопирована в буфер.'); }
+    catch (e) { console.error(e); toast('Не удалось скопировать в буфер.'); }
+  });
   const LOCK_IMP_LABEL = 'Расшифровать и открыть';
   const lockImp = { container: null, imported: null };
   function setImpStatus(msg, isErr) {
@@ -1482,8 +1521,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
     setImpStatus('');
   }
   $('lockImpBtn').addEventListener('click', () => $('lockImpFile').click());
-  $('lockImpFile').addEventListener('change', async () => {
-    const file = $('lockImpFile').files && $('lockImpFile').files[0];
+  async function handleLockImpFile(file) {
     if (!file) return;
     try {
       const text = (await readFileText(file)).replace(/^\uFEFF/, '');
@@ -1499,7 +1537,8 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
       setImpStatus('Файл не похож на резервную копию.', true);
     }
     try { $('lockImpFile').value = ''; } catch (e) {}
-  });
+  }
+  $('lockImpFile').addEventListener('change', () => handleLockImpFile($('lockImpFile').files && $('lockImpFile').files[0]));
   $('lockImpPw').addEventListener('input', () => {
     if (lockImp.imported) { lockImp.imported = null; $('lockImpGo').textContent = LOCK_IMP_LABEL; setImpStatus(''); }
   });
@@ -2147,7 +2186,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
     /* без await до share(): iOS требует, чтобы диалог вызывался прямо из касания */
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) { toast('Нет сохранённых данных.'); return; }
-    const name = `myjournal-backup-${todayISO()}.json`;
+    const name = `myjournal-backup-${todayISO()}`; /* без расширения */
     let file = null;
     try { file = new File([raw], name, { type: 'application/json' }); } catch (e) {}
     if (file && navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
@@ -2161,7 +2200,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
       }
     }
     try {
-      const url = URL.createObjectURL(new Blob([raw], { type: 'application/json' }));
+      const url = URL.createObjectURL(new Blob([raw], { type: 'application/octet-stream' }));
       if ('download' in HTMLAnchorElement.prototype) {
         const a = document.createElement('a');
         a.href = url;
@@ -2196,8 +2235,7 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
   $('pwForm').addEventListener('submit', ev => ev.preventDefault());
   $('importPw').addEventListener('input', () => { if (pendingImport && pendingImport.imported) { resetImportArm(); $('importStatus').textContent = ''; } });
   $('importBtn').addEventListener('click', () => $('importFile').click());
-  $('importFile').addEventListener('change', async () => {
-    const file = $('importFile').files && $('importFile').files[0];
+  async function handleImportFile(file) {
     if (!file) return;
     $('importStatus').textContent = '';
     try {
@@ -2217,7 +2255,8 @@ button:focus-visible,select:focus-visible{outline:2px solid var(--green);outline
       toast('Файл не похож на резервную копию.');
     }
     try { $('importFile').value = ''; } catch (e) {}
-  });
+  }
+  $('importFile').addEventListener('change', () => handleImportFile($('importFile').files && $('importFile').files[0]));
   $('importConfirm').addEventListener('click', async () => {
     if (!pendingImport) return;
     const pw = $('importPw').value;
